@@ -7,6 +7,9 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 public class Form_Sach extends javax.swing.JPanel {
 
@@ -50,7 +53,8 @@ public class Form_Sach extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         spTable = new javax.swing.JScrollPane();
         table = new com.raven.swing.Table();
-        jButton1 = new javax.swing.JButton();
+        btsearch = new javax.swing.JButton();
+        txtsearch = new javax.swing.JTextField();
 
         panel.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
@@ -92,13 +96,24 @@ public class Form_Sach extends javax.swing.JPanel {
         });
         spTable.setViewportView(table);
 
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_add_book_32px.png"))); // NOI18N
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btsearch.setForeground(new java.awt.Color(255, 255, 255));
+        btsearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_search_24px_2.png"))); // NOI18N
+        btsearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        btsearch.setContentAreaFilled(false);
+        btsearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btsearchActionPerformed(evt);
+            }
+        });
+
+        txtsearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtsearchActionPerformed(evt);
+            }
+        });
+        txtsearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtsearchKeyReleased(evt);
             }
         });
 
@@ -107,15 +122,17 @@ public class Form_Sach extends javax.swing.JPanel {
         panelBorder1Layout.setHorizontalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(panelBorder1Layout.createSequentialGroup()
-                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
+                    .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(btsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         panelBorder1Layout.setVerticalGroup(
@@ -124,9 +141,10 @@ public class Form_Sach extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btsearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtsearch))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
 
@@ -152,20 +170,41 @@ public class Form_Sach extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsearchActionPerformed
+    DefaultTableModel ob = (DefaultTableModel) table.getModel();
+        TableRowSorter <DefaultTableModel> obj  = new TableRowSorter<>(ob) ;
+        table.setRowSorter(obj);
+        obj.setRowFilter(RowFilter.regexFilter(txtsearch.getText()) );
+        
+        
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btsearchActionPerformed
+
+    private void txtsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsearchActionPerformed
+        
+    
+    }//GEN-LAST:event_txtsearchActionPerformed
+
+    private void txtsearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsearchKeyReleased
+        
+
+
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_txtsearchKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btsearch;
     private com.raven.component.Card card1;
     private com.raven.component.Card card2;
     private com.raven.component.Card card3;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane panel;
     private com.raven.swing.PanelBorder panelBorder1;
     private javax.swing.JScrollPane spTable;
     private com.raven.swing.Table table;
+    private javax.swing.JTextField txtsearch;
     // End of variables declaration//GEN-END:variables
 }

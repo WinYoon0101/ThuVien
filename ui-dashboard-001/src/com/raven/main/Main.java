@@ -9,6 +9,11 @@ import com.raven.event.EventMenuSelected;
 import com.raven.form.Form_1;
 import com.raven.form.Form_2;
 import com.raven.form.Form_3;
+import com.raven.form.Form_4;
+import com.raven.form.Form_5;
+import com.raven.form.Form_6;
+import com.raven.form.Form_7;
+import com.raven.form.Form_8;
 import com.raven.form.Form_Sach;
 import java.awt.Color;
 import javax.swing.JComponent;
@@ -27,6 +32,13 @@ public class Main extends javax.swing.JFrame {
     private Form_1 form1;
     private Form_2 form2;
     private Form_3 form3;
+    private Form_4 form4;
+    private Form_5 form5;
+    private Form_6 form6;
+    private Form_7 form7;
+    private Form_8 form8;
+
+
    
     public Main() {
         initComponents();
@@ -35,6 +47,14 @@ public class Main extends javax.swing.JFrame {
         form1 = new Form_1();
         form2 = new Form_2();
         form3 = new Form_3();
+        form4 = new Form_4();
+        form5 = new Form_5();
+        form6 = new Form_6();
+        form7 = new Form_7();
+        form8 = new Form_8();
+
+
+
         menu.initMoving(Main.this);
         menu.addEventMenuSelected(new EventMenuSelected() {
             @Override
@@ -47,6 +67,19 @@ public class Main extends javax.swing.JFrame {
                     setForm(form2);
                 } else if (index == 3) {
                     setForm(form3);
+                } else if (index == 4) {
+                    setForm(form4);
+                } else if (index == 8) {
+                    setForm(form5);
+                }
+                else if (index == 9) {
+                    setForm(form6);
+                }
+                else if (index == 10) {
+                    setForm(form7);
+                }
+                else if (index == 11) {
+                    setForm(form8);
                 }
             }
         });

@@ -31,18 +31,18 @@ public class Menu extends javax.swing.JPanel {
     private void init() {
         listMenu1.addItem(new Model_Menu("1", "Dashboard", Model_Menu.MenuType.MENU));
         listMenu1.addItem(new Model_Menu("2", "Sách", Model_Menu.MenuType.MENU));
-        listMenu1.addItem(new Model_Menu("3", "Nhập sách", Model_Menu.MenuType.MENU));
-        listMenu1.addItem(new Model_Menu("4", "Mượn trả sách", Model_Menu.MenuType.MENU));
-        listMenu1.addItem(new Model_Menu("5", "Độc giả", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("3", "Nhập thêm Sách", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("4", "Quản lý Mượn Trả", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("5", "Quản lý Độc giả", Model_Menu.MenuType.MENU));
         
         listMenu1.addItem(new Model_Menu("", " ", Model_Menu.MenuType.EMPTY));
 
         listMenu1.addItem(new Model_Menu("", "More", Model_Menu.MenuType.TITLE));
         listMenu1.addItem(new Model_Menu("", " ", Model_Menu.MenuType.EMPTY));
-        listMenu1.addItem(new Model_Menu("6", "Quản lý nhân viên", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("6", "Quản lý Nhân Viên", Model_Menu.MenuType.MENU));
         listMenu1.addItem(new Model_Menu("7", "Thu tiền phạt", Model_Menu.MenuType.MENU));
         listMenu1.addItem(new Model_Menu("8", "Thống kê", Model_Menu.MenuType.MENU));
-        listMenu1.addItem(new Model_Menu("9", "Thông báo", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("9", "Tra cứu", Model_Menu.MenuType.MENU));
         listMenu1.addItem(new Model_Menu("10", "Đăng xuất", Model_Menu.MenuType.MENU));
         listMenu1.addItem(new Model_Menu("", "", Model_Menu.MenuType.EMPTY));
     }
