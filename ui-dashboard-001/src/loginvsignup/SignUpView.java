@@ -97,6 +97,11 @@ public class SignUpView extends javax.swing.JFrame {
         rSButtonHover1.setText("Đăng nhập");
         rSButtonHover1.setColorText(new java.awt.Color(0, 112, 192));
         rSButtonHover1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        rSButtonHover1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -196,6 +201,13 @@ public class SignUpView extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void rSButtonHover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover1ActionPerformed
+        LoginView login = new LoginView();
+        login.setVisible(true);
+        this.dispose();
+        login.setLocationRelativeTo(null);
+    }//GEN-LAST:event_rSButtonHover1ActionPerformed
 
     /**
      * @param args the command line arguments
