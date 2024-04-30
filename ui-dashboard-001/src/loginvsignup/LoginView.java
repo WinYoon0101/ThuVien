@@ -6,13 +6,25 @@ package loginvsignup;
 
 import com.raven.main.Main;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import thuvienGUI.Homepage;
+import thuvienGUI.HomepageAdmin;
 
 /**
  *
  * @author Mr.T
  */
 public class LoginView extends javax.swing.JFrame {
-
+    Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    public static String pEmail;
+    public static String pHoTen;
+    public static String pMaND;
     /**
      * Creates new form LoginView
      */
@@ -44,11 +56,11 @@ public class LoginView extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        rSMaterialButtonCircle3 = new rojerusan.RSMaterialButtonCircle();
+        btnLogin = new rojerusan.RSMaterialButtonCircle();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jCTextField1 = new app.bolivia.swing.JCTextField();
-        jCTextField2 = new app.bolivia.swing.JCTextField();
+        txtusername = new app.bolivia.swing.JCTextField();
+        txtpassword = new javax.swing.JPasswordField();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -143,11 +155,11 @@ public class LoginView extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Chào mừng trở lại");
 
-        rSMaterialButtonCircle3.setBackground(new java.awt.Color(53, 58, 85));
-        rSMaterialButtonCircle3.setText("Đăng nhập");
-        rSMaterialButtonCircle3.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setBackground(new java.awt.Color(53, 58, 85));
+        btnLogin.setText("Đăng nhập");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSMaterialButtonCircle3ActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
 
@@ -169,33 +181,30 @@ public class LoginView extends javax.swing.JFrame {
             }
         });
 
-        jCTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        jCTextField1.setPlaceholder("Mật khẩu");
-
-        jCTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        jCTextField2.setPlaceholder("Tên đăng nhập");
+        txtusername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+        txtusername.setPlaceholder("Tên đăng nhập");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jCTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                    .addComponent(jCTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(rSMaterialButtonCircle3, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtusername, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                    .addComponent(txtpassword))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,11 +212,11 @@ public class LoginView extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jCTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jCTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(rSMaterialButtonCircle3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -279,14 +288,65 @@ public class LoginView extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void rSMaterialButtonCircle3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle3ActionPerformed
-        dispose();
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Main().setVisible(true);
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+//        dispose();
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new Main().setVisible(true);
+//            }
+//        });
+try {
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
+            String sql = "SELECT * FROM NGUOIDUNG WHERE USERNAME = ? AND PASS = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, txtusername.getText());
+            // Lấy mảng ký tự từ JPasswordField
+            char[] passwordChars = txtpassword.getPassword();
+
+            // Chuyển đổi mảng ký tự thành chuỗi
+            String password = new String(passwordChars);
+
+            ps.setString(2, password);
+            rs = ps.executeQuery();
+
+            //Lưu email đăng nhập với biến pEmail
+            pEmail = txtusername.getText();
+
+            //Phân quyền cho người dùng
+            if (rs.next()) {
+                
+                //Link đến giao diện nhân viên
+                if (rs.getString("VAITRO").equals("Nhan vien")) {
+                    JOptionPane.showMessageDialog(null, "Đăng nhập thành công!");
+                    //Lưu Họ tên đăng nhập với biến pHoTen
+                    pHoTen = rs.getString("TENND");
+                    pMaND = rs.getString("MAND");
+                    HomepageAdmin _homepageAdmin = new HomepageAdmin();
+                    _homepageAdmin.show();
+                    dispose();
+                }
+
+                //Link đến giao diện Khách hàng
+                if (rs.getString("VAITRO").equals("Khach hang")) {
+                    JOptionPane.showMessageDialog(null, "Đăng nhập thành công!");
+                    //Lưu Họ tên đăng nhập với biến pHoTen
+                    pHoTen = rs.getString("TENND");
+                    pMaND = rs.getString("MAND");
+
+                    Homepage _homePageCustomer = new Homepage();
+                    _homePageCustomer.show();
+                    dispose();
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Tài khoản hoặc mật khẩu không chính xác!");
+                txtusername.setText("");
+                txtpassword.setText("");
             }
-        });
-    }//GEN-LAST:event_rSMaterialButtonCircle3ActionPerformed
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }  // TODO add your handling code here
+    }//GEN-LAST:event_btnLoginActionPerformed
     
 //    protected void paintComponent(Graphics grphcs) {
 //        Graphics2D g2 = (Graphics2D) grphcs;
@@ -335,10 +395,9 @@ public class LoginView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojerusan.RSMaterialButtonCircle btnLogin;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private app.bolivia.swing.JCTextField jCTextField1;
-    private app.bolivia.swing.JCTextField jCTextField2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -353,6 +412,9 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private rojerusan.RSMaterialButtonCircle rSMaterialButtonCircle1;
     private rojerusan.RSMaterialButtonCircle rSMaterialButtonCircle2;
-    private rojerusan.RSMaterialButtonCircle rSMaterialButtonCircle3;
+    private javax.swing.JPasswordField txtpassword;
+    private app.bolivia.swing.JCTextField txtusername;
     // End of variables declaration//GEN-END:variables
+
+    
 }
