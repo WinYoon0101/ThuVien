@@ -17,6 +17,7 @@ import com.raven.form.Form_8;
 import com.raven.form.Form_Sach;
 import java.awt.Color;
 import javax.swing.JComponent;
+import loginvsignup.LoginView;
 
 /**
  *
@@ -79,6 +80,13 @@ public class HomepageAdmin extends javax.swing.JFrame {
                 }
                 else if (index == 11) {
                     setForm(form8);
+                }
+                else if (index==12) {
+                    LoginView login = new LoginView();
+        login.setVisible(true);
+        
+        login.setLocationRelativeTo(null);
+        dispose();
                 }
             }
         });
