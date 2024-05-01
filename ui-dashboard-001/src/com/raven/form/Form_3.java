@@ -57,6 +57,7 @@ public class Form_3 extends javax.swing.JPanel {
         rSTableMetro1 = new rojeru_san.complementos.RSTableMetro();
 
         setBackground(new java.awt.Color(239, 230, 244));
+        setPreferredSize(new java.awt.Dimension(915, 600));
 
         jLabel1.setBackground(new java.awt.Color(201, 170, 217));
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
