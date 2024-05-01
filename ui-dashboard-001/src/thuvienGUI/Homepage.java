@@ -4,7 +4,12 @@
  */
 package thuvienGUI;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import loginvsignup.LoginView;
+import static loginvsignup.LoginView.pMaND;
+import thuvienBUS.NguoiDungBUS;
+import thuvienDTO.NguoiDungDTO;
 
 /**
  *
@@ -15,8 +20,12 @@ public class Homepage extends javax.swing.JFrame {
     /**
      * Creates new form HomePage
      */
-    public Homepage() {
+    public Homepage() throws Exception {
         initComponents();
+        NguoiDungBUS nguoidungtbl = new NguoiDungBUS();
+        NguoiDungDTO nd = nguoidungtbl.getInfor(pMaND);
+        lblHoVaTen.setText(nd.getStrHoTen());
+        
         setLocationRelativeTo(null);
     }
 
@@ -404,7 +413,11 @@ public class Homepage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Homepage().setVisible(true);
+                try {
+                    new Homepage().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
