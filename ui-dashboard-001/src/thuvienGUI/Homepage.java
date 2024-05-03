@@ -24,7 +24,9 @@ public class Homepage extends javax.swing.JFrame {
         initComponents();
         NguoiDungBUS nguoidungtbl = new NguoiDungBUS();
         NguoiDungDTO nd = nguoidungtbl.getInfor(pMaND);
+        
         lblHoVaTen.setText(nd.getStrHoTen());
+        lblMail.setText(nd.getStrMail());
         
         setLocationRelativeTo(null);
     }
@@ -62,6 +64,7 @@ public class Homepage extends javax.swing.JFrame {
         rSButtonHover3 = new rojerusan.RSButtonHover();
         rSButtonHover4 = new rojerusan.RSButtonHover();
         rSButtonHover5 = new rojerusan.RSButtonHover();
+        lblMail = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -288,7 +291,7 @@ public class Homepage extends javax.swing.JFrame {
         rSButtonHover3.setLabel("Dashboard");
 
         rSButtonHover4.setBackground(new java.awt.Color(152, 133, 205));
-        rSButtonHover4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/6.png"))); // NOI18N
+        rSButtonHover4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_settings_25px.png"))); // NOI18N
         rSButtonHover4.setColorHover(new java.awt.Color(115, 87, 170));
         rSButtonHover4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,18 +308,24 @@ public class Homepage extends javax.swing.JFrame {
             }
         });
 
+        lblMail.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblMail.setForeground(new java.awt.Color(255, 255, 255));
+        lblMail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMail.setText("Gmail");
+
         javax.swing.GroupLayout panelColor1Layout = new javax.swing.GroupLayout(panelColor1);
         panelColor1.setLayout(panelColor1Layout);
         panelColor1Layout.setHorizontalGroup(
             panelColor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
             .addGroup(panelColor1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblHoVaTen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(lblMail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelColor1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(33, 33, 33)
                 .addGroup(panelColor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rSButtonHover2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSButtonHover3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -326,17 +335,19 @@ public class Homepage extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(rSButtonHover4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(rSButtonHover1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelColor1Layout.setVerticalGroup(
             panelColor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelColor1Layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblHoVaTen, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(12, 12, 12)
+                .addComponent(lblMail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addComponent(rSButtonHover3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(rSButtonHover2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -346,7 +357,7 @@ public class Homepage extends javax.swing.JFrame {
                 .addGroup(panelColor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rSButtonHover4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSButtonHover5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -439,6 +450,7 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblHoVaTen;
+    private javax.swing.JLabel lblMail;
     private com.raven.component.PanelColor panelColor1;
     private com.raven.component.PanelColor1 panelColor11;
     private rojerusan.RSButtonHover rSButtonHover1;
