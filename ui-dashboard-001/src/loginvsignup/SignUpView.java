@@ -260,14 +260,14 @@ public class SignUpView extends javax.swing.JFrame {
             ps1 = conn.prepareStatement(maxMaND);
             rs1 = ps1.executeQuery();
 
-            //Thực thi checkEmailExist - Kiểm tra email đã tồn tại trong database hay chưa.
+            //  Kiểm tra username đã tồn tại trong database hay chưa.
             String checkUserExist = "Select count(MAND) as countUser from NguoiDung where USERNAME = ?";
             ps2 = conn.prepareStatement(checkUserExist);
             ps2.setString(1, txtUserSignUp.getText());
             rs2 = ps2.executeQuery();
 
             StringBuilder sb = new StringBuilder();
-            //Kiểm tra tính hợp lệ của email khi đăng ký
+            
             
             //Kiểm tra thông tin không được bỏ trống.
             if (txtUserSignUp.getText().equals("")) {
@@ -310,7 +310,7 @@ public class SignUpView extends javax.swing.JFrame {
 
             ps.setString(2, txtUserSignUp.getText());
             
-            //Băm mật khẩu
+            
             char[] passwordChars = txtPasswordSignUp.getPassword();
 
             // Chuyển đổi mảng ký tự thành chuỗi
@@ -328,12 +328,7 @@ public class SignUpView extends javax.swing.JFrame {
             //Thực thi thêm người dùng vào bảng người dùng
             rs = ps.executeQuery();
             
-            //Thực thi thêm người dùng vai trò khách hàng vào bảng khách hàng
-//            sql = "INSERT INTO KHACHHANG (MaKH, SoDu) VALUES (?, ?)";
-//            ps = conn.prepareStatement(sql);
-//            ps.setString(1, "ND" + id + "");
-//            ps.setInt(2, 0);
-//            rs = ps.executeQuery();
+           
             JOptionPane.showMessageDialog(this, "Đăng ký thành công!");
 //            Homepage _homepageCustomer = new Homepage();
 //            _homepageCustomer.show();

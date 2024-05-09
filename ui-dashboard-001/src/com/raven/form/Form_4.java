@@ -5,8 +5,14 @@
  */
 package com.raven.form;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -25,17 +31,53 @@ import thuvienDAO.SQLConnectUnit;
 import thuvienDAO.SQLConnection;
 import thuvienDTO.NguoiDungDTO;
 import static thuvienGUI.InitPublic.formatDate;
+import static thuvienGUI.InitPublic.getID;
 
 /**
  *
  * @author RAVEN
  */
 public class Form_4 extends javax.swing.JPanel {
-        
+    
     DefaultTableModel model;
-    SQLConnectUnit connect;
-    public static SQLConnection connection = new SQLConnection("UITParking", "uitparking", "orcl");
-    public static PreparedStatement pst = null;
+    
+    
+    Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    
+    public void updateDB () {
+        try {
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
+            String sql = "SELECT * FROM NGUOIDUNG ";
+            ps = conn.prepareStatement(sql);
+            
+            rs = ps.executeQuery();
+            model.setRowCount(0);
+
+        // Iterate over the result set and add each row to the table model
+        while (rs.next()) {
+            if (rs.getString("VAITRO").equals("Khach hang")) {
+        Object[] rowData = {
+            rs.getString("MAND"),
+            rs.getString("TENND"),
+            rs.getString("MAIL"),
+            rs.getDate("NGSINH"),
+            rs.getString("GIOITINH"),
+            rs.getString("DIACHI"),
+            rs.getString("USERNAME"),
+            rs.getString("PASS")
+        };
+        model.addRow(rowData); // Thêm dòng vào bảng
+    }
+        }
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }  // TODO add your handling code here
+    }
+    
+    
     
      public Form_4()   {       
         initComponents();  
@@ -47,42 +89,25 @@ public class Form_4 extends javax.swing.JPanel {
         setVisible(true);
         
         try {
-            Display();
+            updateDB();
         } catch (Exception ex) {
             Logger.getLogger(Form_4.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     /**
-     * Creates new form Form_1
+     * Check đã có user hay mail trong database chưa
      */
     
-    
-    private void Display() throws Exception {
-        NguoiDungBUS nguoidungtbl = new NguoiDungBUS();
-    ArrayList<NguoiDungDTO> list_ND = nguoidungtbl.getList_ND();
-    DefaultTableModel model = (DefaultTableModel) tblModel.getModel();
-    model.setRowCount(0); // Xóa dữ liệu cũ trên bảng
-        
-
-    // Duyệt qua danh sách người dùng và thêm dữ liệu vào bảng
-    for (NguoiDungDTO nguoidung : list_ND) {
-        Object[] rowData = {
-            nguoidung.getStrMaND(),
-            nguoidung.getStrHoTen(),
-            nguoidung.getStrGioiTinh(),
-            nguoidung.getStrSDT(),
-            nguoidung.getStrDiaChi(),
-            nguoidung.getStrUserName(),
-            nguoidung.getStrPass(),
-            nguoidung.getStrVaiTro(),
-            nguoidung.getStrMail(),
-            nguoidung.getDateNgSinh(),
-            nguoidung.getMAROLE(),
-            nguoidung.getTTND()
-        };
-        model.addRow(rowData);
+    private boolean checkExistingUser(Connection conn, String username, String email) throws SQLException {
+    String query = "SELECT * FROM NGUOIDUNG WHERE USERNAME = ? OR MAIL = ?";
+    try (PreparedStatement ps = conn.prepareStatement(query)) {
+        ps.setString(1, username);
+        ps.setString(2, email);
+        try (ResultSet rs = ps.executeQuery()) {
+            return rs.next(); // If any row is returned, user already exists
+        }
     }
-}
+    }
 
    
     
@@ -267,6 +292,11 @@ public class Form_4 extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblModel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblModelMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblModel);
 
         txtHoTen.addActionListener(new java.awt.event.ActionListener() {
@@ -443,42 +473,106 @@ public class Form_4 extends javax.swing.JPanel {
     }//GEN-LAST:event_txtDiaChiActionPerformed
 
     private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
-        // TODO add your handling code here:
+        int selectedRow = tblModel.getSelectedRow();
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(this, "Vui lòng chọn một người dùng để cập nhật.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    
+    // Get the user ID from the selected row
+    String maND = (String) tblModel.getValueAt(selectedRow, 0);
+
+    // Assuming you have JTextField components for users to input updated information
+    String tenND = txtHoTen.getText(); // Full Name
+    String email = txtEmail.getText(); // Email
+    java.sql.Date ngSinh = new java.sql.Date(jdcNgaySinh.getDatoFecha().getTime()); // Date of Birth
+    String gioiTinh = rdbNam.isSelected() ? "Nam" : "Nữ";
+    String diaChi = txtDiaChi.getText(); // Address
+    String username = txtusername.getText(); // Username
+    String password = txtMatKhau.getText(); // Password
+
+    try {
+        // Update the user information in the database
+        conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
+        String sql = "UPDATE NGUOIDUNG SET TENND = ?, MAIL = ?, NGSINH = ?, GIOITINH = ?, DIACHI = ?, USERNAME = ?, PASS = ? WHERE MAND = ?";
+        ps = conn.prepareStatement(sql);
+        ps.setString(1, tenND);
+        ps.setString(2, email);
+        ps.setDate(3, ngSinh);
+        ps.setString(4, gioiTinh);
+        ps.setString(5, diaChi);
+        ps.setString(6, username);
+        ps.setString(7, password);
+        ps.setString(8, maND);
+
+        int updated = ps.executeUpdate();
+
+        if (updated > 0) {
+            // If update is successful, update the table
+            JOptionPane.showMessageDialog(this, "Thông tin người dùng đã được cập nhật thành công.", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            // Update the table after update
+            updateDB();
+        } else {
+            JOptionPane.showMessageDialog(this, "Không thể cập nhật thông tin người dùng. Vui lòng thử lại sau.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(this, "Không thể cập nhật thông tin người dùng. Vui lòng thử lại sau.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        ex.printStackTrace(); // Print the error to console for debugging
+    } finally {
+        // Close resources
+        try {
+            if (ps != null) ps.close();
+            if (conn != null) conn.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    resetRender();
     }//GEN-LAST:event_btnCapNhatActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        // Lấy hàng đã chọn trong bảng
-    int selectedRow = tblModel.getSelectedRow();
+        int selectedRow = tblModel.getSelectedRow();
     if (selectedRow == -1) {
         JOptionPane.showMessageDialog(this, "Vui lòng chọn một người dùng để xóa.", "Lỗi", JOptionPane.ERROR_MESSAGE);
         return;
     }
 
-    // Lấy mã người dùng từ hàng đã chọn
+    // Get the user ID from the selected row
     String maND = (String) tblModel.getValueAt(selectedRow, 0);
 
-    // Hiển thị hộp thoại xác nhận xóa người dùng
+    // Display a confirmation dialog for deleting the user
     int option = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn xóa người dùng này?", "Xác nhận", JOptionPane.YES_NO_OPTION);
     if (option == JOptionPane.YES_OPTION) {
         try {
-            // Xóa người dùng từ cơ sở dữ liệu
-            NguoiDungBUS nguoidungBUS = new NguoiDungBUS();
-            NguoiDungDTO nguoidung = nguoidungBUS.findById(maND);
-            if (nguoidung != null && nguoidungBUS.xoa(nguoidung)) {
-                // Nếu xóa thành công, cập nhật danh sách người dùng và bảng
+            // Delete the user from the database
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
+            String sql = "DELETE FROM NGUOIDUNG WHERE MAND = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, maND);
+            int deleted = ps.executeUpdate();
+
+            if (deleted > 0) {
+                // If deletion is successful, update the table
                 JOptionPane.showMessageDialog(this, "Đã xóa người dùng thành công.", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
-                // Cập nhật lại danh sách người dùng từ cơ sở dữ liệu
-                ArrayList<NguoiDungDTO> list_ND = nguoidungBUS.getList_ND();
-                // Hiển thị lại dữ liệu trên bảng
-                Display();
+                // Update the table after deletion
+                updateDB();
             } else {
                 JOptionPane.showMessageDialog(this, "Không thể xóa người dùng. Vui lòng thử lại sau.", "Lỗi", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Không thể xóa người dùng. Vui lòng thử lại sau.", "Lỗi", JOptionPane.ERROR_MESSAGE);
-            ex.printStackTrace(); // In ra lỗi vào console để debug
+            ex.printStackTrace(); // Print the error to console for debugging
+        } finally {
+            // Close resources
+            try {
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
         }
     }
+    resetRender();
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void txtHoTenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoTenActionPerformed
@@ -491,7 +585,125 @@ public class Form_4 extends javax.swing.JPanel {
 
     private void btnNhapMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhapMoiActionPerformed
         
+       if (txtHoTen.getText().isEmpty() || txtEmail.getText().isEmpty() || txtDiaChi.getText().isEmpty() || txtusername.getText().isEmpty() || txtMatKhau.getText().isEmpty() || jdcNgaySinh.getDatoFecha() == null || (!rdbNam.isSelected() && !rdbNu.isSelected())) {
+    JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+    return; // Stop further execution if any required field is empty
+}
+
+
+        
+    String tenND = txtHoTen.getText(); // Full Name
+    String email = txtEmail.getText(); // Email
+    java.sql.Date ngSinh = new java.sql.Date(jdcNgaySinh.getDatoFecha().getTime()); // Date of Birth
+    String gioiTinh = rdbNam.isSelected() ? "Nam" : "Nữ"; // Gender based on selected radio button
+    String diaChi = txtDiaChi.getText(); // Address
+    String username = txtusername.getText(); // Username
+    String password = txtMatKhau.getText(); // Password
+
+    
+    
+
+    
+    try {
+        // Connect to the database
+        conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
+
+        // Check if username or email already exists
+        if (checkExistingUser(conn, username, email)) {
+            JOptionPane.showMessageDialog(this, "Username hoặc email đã tồn tại trong hệ thống. Vui lòng chọn một username hoặc email khác.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        
+            String maxMaNDQuery = "SELECT MAX(MaND) AS MaxND FROM NguoiDung";
+    ps = conn.prepareStatement(maxMaNDQuery);
+    rs = ps.executeQuery();
+    
+    String id = "";
+    if (rs.next()) {
+        String maxnd = rs.getString("MaxND");
+        id = getID(maxnd);
+    }
+        
+
+        // Prepare SQL statement for inserting a new user
+        String sql = "INSERT INTO NGUOIDUNG (TENND, MAIL, NGSINH, GIOITINH, DIACHI, USERNAME, PASS, VAITRO,MAND) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
+        ps = conn.prepareStatement(sql);
+        ps.setString(1, tenND);
+        ps.setString(2, email);
+        ps.setDate(3, ngSinh);
+        ps.setString(4, gioiTinh);
+        ps.setString(5, diaChi);
+        ps.setString(6, username);
+        ps.setString(7, password);
+        ps.setString(8, "Khach hang");
+        ps.setString(9, "ND" + id);
+        // Execute the SQL statement to insert the new user
+        int inserted = ps.executeUpdate();
+
+        if (inserted > 0) {
+            // If insertion is successful, show success message
+            JOptionPane.showMessageDialog(this, "Thêm người dùng mới thành công.", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            
+            // Clear input fields after insertion
+            resetRender();
+            
+            // Update the table after insertion
+            updateDB();
+        } else {
+            // If insertion fails, show error message
+            JOptionPane.showMessageDialog(this, "Không thể thêm người dùng mới. Vui lòng thử lại sau.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch (SQLException ex) {
+        // If an SQL exception occurs, show error message and print stack trace for debugging
+        JOptionPane.showMessageDialog(this, "Không thể thêm người dùng mới. Vui lòng thử lại sau.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        ex.printStackTrace();
+    } finally {
+        // Close resources
+        try {
+            if (ps != null) ps.close();
+            if (conn != null) conn.close();
+        } catch (SQLException e) {
+            // If closing resources fails, show error message
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
     }//GEN-LAST:event_btnNhapMoiActionPerformed
+
+    private void tblModelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblModelMouseClicked
+        int selectedRow = tblModel.getSelectedRow();
+                if (selectedRow != -1) {
+                    // Lấy thông tin của sách từ hàng được chọn
+                    String mand = (String) tblModel.getValueAt(selectedRow, 0);
+                    String ten = (String) tblModel.getValueAt(selectedRow, 1);
+                    String mail = (String) tblModel.getValueAt(selectedRow, 2);
+                    Date ngsinh = (Date) tblModel.getValueAt(selectedRow, 3);
+                    
+                    String gt = (String) tblModel.getValueAt(selectedRow, 4);
+                    String diachi = (String) tblModel.getValueAt(selectedRow, 5);
+                    String user = (String) tblModel.getValueAt(selectedRow, 6);
+                    String pass = (String) tblModel.getValueAt(selectedRow, 7);
+
+                    // Hiển thị thông tin lên các vùng nhập liệu
+                    
+                    txtMaKH.setText(mand);
+                    txtHoTen.setText(ten);
+                    txtEmail.setText(mail);
+                    txtDiaChi.setText(diachi);
+                    txtusername.setText(user);
+                    txtMatKhau.setText(pass);
+                    jdcNgaySinh.setDatoFecha(ngsinh);
+               
+                    
+                    if (gt != null && gt.equals("Nam")) {
+            
+             rdbNam.setSelected(true);
+        } else {
+            rdbNu.setSelected(true);
+        }
+    }                                  
+    }//GEN-LAST:event_tblModelMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
