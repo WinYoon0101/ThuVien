@@ -66,7 +66,7 @@ public class Form_3 extends javax.swing.JPanel {
         jLabel1.setOpaque(true);
 
         rSMaterialButtonRectangle2.setBackground(new java.awt.Color(53, 58, 85));
-        rSMaterialButtonRectangle2.setText("XÁC NHẬN");
+        rSMaterialButtonRectangle2.setText("Xác nhận");
         rSMaterialButtonRectangle2.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         rSMaterialButtonRectangle2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,7 +85,7 @@ public class Form_3 extends javax.swing.JPanel {
         jLabel26.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(0, 0, 102));
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setText("Tổng giá trị sách:");
+        jLabel26.setText("Số lượng sách quá hạn");
 
         txt_ReaderID1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
         txt_ReaderID1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
@@ -94,6 +94,11 @@ public class Form_3 extends javax.swing.JPanel {
         txt_ReaderID2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
         txt_ReaderID2.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         txt_ReaderID2.setPhColor(new java.awt.Color(102, 102, 102));
+        txt_ReaderID2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_ReaderID2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -131,7 +136,7 @@ public class Form_3 extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 102));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("THÊM SÁCH");
+        jLabel16.setText("THÔNG TIN SÁCH");
 
         jComboBox1.setEditable(true);
         jComboBox1.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
@@ -142,7 +147,7 @@ public class Form_3 extends javax.swing.JPanel {
         jLabel38.setText("Sách");
 
         rSMaterialButtonRectangle4.setBackground(new java.awt.Color(53, 58, 85));
-        rSMaterialButtonRectangle4.setText("+ Sách");
+        rSMaterialButtonRectangle4.setText("+ Mượn");
         rSMaterialButtonRectangle4.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         rSMaterialButtonRectangle4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +156,7 @@ public class Form_3 extends javax.swing.JPanel {
         });
 
         rSMaterialButtonRectangle5.setBackground(new java.awt.Color(53, 58, 85));
-        rSMaterialButtonRectangle5.setText("- Sách");
+        rSMaterialButtonRectangle5.setText("- Trả");
         rSMaterialButtonRectangle5.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         rSMaterialButtonRectangle5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,7 +233,7 @@ public class Form_3 extends javax.swing.JPanel {
 
         jLabel21.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel21.setText("Mã | Tên người lập phiếu");
+        jLabel21.setText("Mã nhân viên");
 
         jLabel23.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -236,7 +241,7 @@ public class Form_3 extends javax.swing.JPanel {
 
         jLabel37.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel37.setText("Mã | Tên độc giả");
+        jLabel37.setText("Mã độc giả");
 
         jLabel29.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -299,7 +304,7 @@ public class Form_3 extends javax.swing.JPanel {
         jLabel17.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 102));
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("MƯỢN SÁCH");
+        jLabel17.setText("MƯỢN TRẢ SÁCH");
 
         rSTableMetro1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
         rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
@@ -307,7 +312,7 @@ public class Form_3 extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Mã sách", "Tên ", "Thể loại", "Nhà xuất bản", "Trị giá"
+                "Mã phiếu", "Mã sách", "Tên sách", "Ngày mượn", "Trị giá", "Tình trạng"
             }
         ));
         rSTableMetro1.setAltoHead(20);
@@ -332,7 +337,7 @@ public class Form_3 extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 587, Short.MAX_VALUE)
+                .addGap(0, 732, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -356,7 +361,7 @@ public class Form_3 extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -374,7 +379,7 @@ public class Form_3 extends javax.swing.JPanel {
                         .addGroup(layout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(19, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -396,6 +401,10 @@ public class Form_3 extends javax.swing.JPanel {
 //        this.dispose();
         returnsBooks.setLocationRelativeTo(null);
     }//GEN-LAST:event_rSMaterialButtonRectangle5ActionPerformed
+
+    private void txt_ReaderID2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ReaderID2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_ReaderID2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

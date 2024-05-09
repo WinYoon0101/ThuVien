@@ -40,7 +40,7 @@ public class HomepageAdmin extends javax.swing.JFrame {
 
 
    
-    public HomepageAdmin() {
+    public HomepageAdmin()  {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
         home = new Form_Sach();
