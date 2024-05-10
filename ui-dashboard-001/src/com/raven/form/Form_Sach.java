@@ -187,7 +187,10 @@ public class Form_Sach extends javax.swing.JPanel {
     }//GEN-LAST:event_txtsearchActionPerformed
 
     private void txtsearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsearchKeyReleased
-        
+        DefaultTableModel ob = (DefaultTableModel) table.getModel();
+        TableRowSorter <DefaultTableModel> obj  = new TableRowSorter<>(ob) ;
+        table.setRowSorter(obj);
+        obj.setRowFilter(RowFilter.regexFilter(txtsearch.getText()) );
 
 
 

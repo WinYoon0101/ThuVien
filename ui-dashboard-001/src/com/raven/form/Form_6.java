@@ -263,7 +263,7 @@ public class Form_6 extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(FineTable);
 
-        List.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 650, 480));
+        List.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 650, 460));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

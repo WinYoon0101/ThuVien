@@ -313,6 +313,12 @@ public class Form_4 extends javax.swing.JPanel {
 
         btnTimKiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_search_24px_2.png"))); // NOI18N
 
+        txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimKiemKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelColor31Layout = new javax.swing.GroupLayout(panelColor31);
         panelColor31.setLayout(panelColor31Layout);
         panelColor31Layout.setHorizontalGroup(
@@ -704,6 +710,13 @@ public class Form_4 extends javax.swing.JPanel {
         }
     }                                  
     }//GEN-LAST:event_tblModelMouseClicked
+
+    private void txtTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyReleased
+        DefaultTableModel ob = (DefaultTableModel) tblModel.getModel();
+        TableRowSorter <DefaultTableModel> obj  = new TableRowSorter<>(ob) ;
+        tblModel.setRowSorter(obj);
+        obj.setRowFilter(RowFilter.regexFilter(txtTimKiem.getText()) );
+    }//GEN-LAST:event_txtTimKiemKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
