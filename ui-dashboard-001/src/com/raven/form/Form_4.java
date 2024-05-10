@@ -157,7 +157,6 @@ public class Form_4 extends javax.swing.JPanel {
         txtMatKhau = new javax.swing.JTextField();
         jdcNgaySinh = new rojeru_san.componentes.RSDateChooser();
         btnNhapMoi = new javax.swing.JButton();
-        btnLuu = new javax.swing.JButton();
         btnCapNhat = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -248,16 +247,6 @@ public class Form_4 extends javax.swing.JPanel {
         btnNhapMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNhapMoiActionPerformed(evt);
-            }
-        });
-
-        btnLuu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnLuu.setForeground(new java.awt.Color(0, 0, 153));
-        btnLuu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_save_25px.png"))); // NOI18N
-        btnLuu.setText("Lưu");
-        btnLuu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLuuActionPerformed(evt);
             }
         });
 
@@ -372,14 +361,13 @@ public class Form_4 extends javax.swing.JPanel {
                                 .addComponent(jdcNgaySinh, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
                                 .addGap(44, 44, 44))))
                     .addGroup(panelColor31Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
                         .addComponent(btnNhapMoi)
-                        .addGap(45, 45, 45)
-                        .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
+                        .addGap(57, 57, 57)
                         .addComponent(btnCapNhat)
-                        .addGap(33, 33, 33)
+                        .addGap(58, 58, 58)
                         .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
+                        .addGap(114, 114, 114)
                         .addComponent(btnTimKiem)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtTimKiem)
@@ -433,7 +421,6 @@ public class Form_4 extends javax.swing.JPanel {
                     .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelColor31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNhapMoi)
-                        .addComponent(btnLuu)
                         .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnXoa)
                         .addComponent(btnTimKiem)))
@@ -585,10 +572,6 @@ public class Form_4 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHoTenActionPerformed
 
-    private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
-        
-    }//GEN-LAST:event_btnLuuActionPerformed
-
     private void btnNhapMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhapMoiActionPerformed
         
        if (txtHoTen.getText().isEmpty() || txtEmail.getText().isEmpty() || txtDiaChi.getText().isEmpty() || txtusername.getText().isEmpty() || txtMatKhau.getText().isEmpty() || jdcNgaySinh.getDatoFecha() == null || (!rdbNam.isSelected() && !rdbNu.isSelected())) {
@@ -722,7 +705,6 @@ public class Form_4 extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup GioiTinh;
     private javax.swing.JButton btnCapNhat;
-    private javax.swing.JButton btnLuu;
     private javax.swing.JButton btnNhapMoi;
     private javax.swing.JButton btnTimKiem;
     private javax.swing.JButton btnXoa;

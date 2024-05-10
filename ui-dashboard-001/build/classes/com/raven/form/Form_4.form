@@ -108,14 +108,13 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                           <Component id="btnNhapMoi" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                          <Component id="btnLuu" min="-2" pref="99" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                           <Component id="btnCapNhat" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                           <Component id="btnXoa" min="-2" pref="99" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                           <Component id="btnTimKiem" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtTimKiem" max="32767" attributes="0"/>
@@ -186,7 +185,6 @@
                       <Component id="txtTimKiem" min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="btnNhapMoi" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnLuu" alignment="3" max="-2" attributes="0"/>
                           <Component id="btnCapNhat" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="btnXoa" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnTimKiem" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -335,23 +333,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNhapMoiActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnLuu">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/com/raven/icon/icons8_save_25px.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="L&#x1b0;u"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLuuActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnCapNhat">
