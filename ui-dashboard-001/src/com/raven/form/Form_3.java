@@ -56,10 +56,10 @@ public class Form_3 extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         rSTableMetro1 = new rojeru_san.complementos.RSTableMetro();
 
-        setBackground(new java.awt.Color(239, 230, 244));
+        setBackground(new java.awt.Color(236, 245, 252));
         setPreferredSize(new java.awt.Dimension(915, 600));
 
-        jLabel1.setBackground(new java.awt.Color(201, 170, 217));
+        jLabel1.setBackground(new java.awt.Color(238, 252, 253));
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(106, 106, 106));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

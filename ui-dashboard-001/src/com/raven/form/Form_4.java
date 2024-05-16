@@ -472,6 +472,11 @@ public class Form_4 extends javax.swing.JPanel {
         return;
     }
     
+    if (txtHoTen.getText().isEmpty() || txtEmail.getText().isEmpty() || txtDiaChi.getText().isEmpty() || txtusername.getText().isEmpty() || txtMatKhau.getText().isEmpty() || jdcNgaySinh.getDatoFecha() == null || (!rdbNam.isSelected() && !rdbNu.isSelected())) {
+    JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+    return; // Stop further execution if any required field is empty
+}
+    
     // Get the user ID from the selected row
     String maND = (String) tblModel.getValueAt(selectedRow, 0);
 
