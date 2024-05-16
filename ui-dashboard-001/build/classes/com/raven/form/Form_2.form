@@ -26,11 +26,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -39,6 +35,10 @@
                           </Group>
                           <Component id="jLabel1" min="-2" pref="828" max="-2" attributes="0"/>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                      <Component id="sum" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="25" max="32767" attributes="0"/>
@@ -50,10 +50,10 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jLabel1" min="-2" pref="57" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="31" max="32767" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="sum" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,64 +84,62 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtMaPN" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="rSDateChooser1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jdcNgaySinh" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField6" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
+                                      <Component id="txtMaNV" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
                                       <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField3" min="-2" pref="213" max="-2" attributes="0"/>
+                                      <Component id="txtTen" min="-2" pref="213" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBox1" alignment="0" pref="298" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel9" min="-2" pref="65" max="-2" attributes="0"/>
-                                              <Component id="jTextField4" min="-2" pref="56" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jTextField5" pref="199" max="32767" attributes="0"/>
-                                              <Component id="jLabel10" max="32767" attributes="0"/>
-                                          </Group>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtTenSach" alignment="0" pref="298" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel9" min="-2" pref="65" max="-2" attributes="0"/>
+                                          <Component id="txtSL" min="-2" pref="56" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtDonGia" pref="199" max="32767" attributes="0"/>
+                                          <Component id="jLabel10" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
+                                  <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="rSMaterialButtonRectangle1" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="rSMaterialButtonRectangle2" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Component id="rSMaterialButtonRectangle3" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="rSMaterialButtonRectangle4" min="-2" pref="70" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jLabel3" pref="29" max="32767" attributes="0"/>
-                      <Component id="jLabel2" max="32767" attributes="0"/>
+                      <Component id="jLabel3" max="32767" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -152,17 +150,17 @@
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" pref="30" max="32767" attributes="0"/>
+                                  <Component id="txtTenSach" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Component id="jTextField6" max="32767" attributes="0"/>
+                                  <Component id="txtMaNV" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <Component id="jTextField3" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="txtTen" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -173,15 +171,15 @@
                           </Group>
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextField4" pref="26" max="32767" attributes="0"/>
-                              <Component id="jTextField5" max="32767" attributes="0"/>
+                              <Component id="txtSL" max="32767" attributes="0"/>
+                              <Component id="txtDonGia" min="-2" pref="26" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                          <Component id="jTextField1" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="txtMaPN" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -190,25 +188,22 @@
                           <Component id="jLabel7" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                  <Component id="rSDateChooser1" min="-2" pref="35" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="rSMaterialButtonRectangle2" min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Component id="rSMaterialButtonRectangle3" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Component id="rSMaterialButtonRectangle1" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="jdcNgaySinh" min="-2" pref="35" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="rSMaterialButtonRectangle2" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="rSMaterialButtonRectangle1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="rSMaterialButtonRectangle3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="rSMaterialButtonRectangle4" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollPane3" min="-2" pref="157" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="26" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="jScrollPane3" min="-2" pref="161" max="-2" attributes="0"/>
+                  <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -235,7 +230,7 @@
             <Property name="text" type="java.lang.String" value="CHI TI&#x1ebe;T PHI&#x1ebe;U NH&#x1eac;P"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="txtMaPN">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -255,7 +250,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="T&#xca;N NG&#x1af;&#x1edc;I D&#xd9;NG"/>
+            <Property name="text" type="java.lang.String" value="T&#xca;N NH&#xc2;N VI&#xca;N"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -266,7 +261,7 @@
             <Property name="text" type="java.lang.String" value="M&#xc3; PHI&#x1ebe;U NH&#x1eac;P"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="txtTen">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -286,23 +281,32 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="M&#xc3; S&#xc1;CH | T&#xca;N S&#xc1;CH"/>
+            <Property name="text" type="java.lang.String" value="T&#xca;N S&#xc1;CH"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="txtTenSach">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="10">
-                <StringItem index="0" value="001      |  Nh&#x1ead;t k&#xfd; c&#x1ee7;a Anne Frank"/>
-                <StringItem index="1" value="002      |  S&#x1ee9;c m&#x1ea1;nh c&#x1ee7;a th&#xf3;i quen"/>
-                <StringItem index="2" value="003      |  T&#xf4;i &#x111;&#xe3; b&#xe1;n m&#x1ed9;t tri&#x1ec7;u"/>
-                <StringItem index="3" value="004      |  &#x110;&#x1eaf;c nh&#xe2;n t&#xe2;m"/>
-                <StringItem index="4" value="005      |  Ng&#xe0;y x&#x1b0;a c&#xf3; m&#x1ed9;t chuy&#x1ec7;n t&#xec;nh"/>
-                <StringItem index="5" value="006      |  Nh&#x1eef;ng nguy&#xea;n t&#x1eaf;c th&#xe0;nh c&#xf4;ng"/>
-                <StringItem index="6" value="007      |  &#x110;&#xe1;nh th&#x1ee9;c con ng&#x1b0;&#x1edd;i phi th&#x1b0;&#x1edd;ng"/>
-                <StringItem index="7" value="008      |  Ch&#xfa;ng ta n&#xea;n s&#x1ed1;ng nh&#x1b0; th&#x1ebf; n&#xe0;o?"/>
-                <StringItem index="8" value="009      |  H&#xe0;nh tr&#xec;nh v&#x1ec1; ph&#x1b0;&#x1a1;ng &#x110;&#xf4;ng"/>
-                <StringItem index="9" value="010      |  Tin t&#x1ee9;c t&#x1eeb; h&#xe0;nh tinh xa"/>
+              <StringArray count="19">
+                <StringItem index="0" value="&#x110;&#x1eaf;c Nh&#xe2;n T&#xe2;m"/>
+                <StringItem index="1" value="7 Th&#xf3;i Quen"/>
+                <StringItem index="2" value="Nh&#xe0; Gi&#x1ea3; Kim"/>
+                <StringItem index="3" value="Tu Duy Nhanh"/>
+                <StringItem index="4" value="Chi&#x1ebf;n L&#x1b0;&#x1ee3;c Xanh"/>
+                <StringItem index="5" value="Qu&#x1eb3;ng G&#xe1;nh Lo"/>
+                <StringItem index="6" value="S&#x1ed1;ng Th&#x1ef1;c T&#x1ebf; Tr&#xea;n &#x110;&#x1edd;i "/>
+                <StringItem index="7" value="Ph&#x1ead;t ph&#xe1;p nhi&#x1ec7;m m&#xe0;u"/>
+                <StringItem index="8" value="Ti&#x1ebf;ng Chim H&#xf3;t"/>
+                <StringItem index="9" value="&#x110;i&#x1ec3;m B&#xf9;ng"/>
+                <StringItem index="10" value="Nh&#x1ead;t k&#xfd; c&#x1ee7;a Anne Frank"/>
+                <StringItem index="11" value="S&#x1ee9;c m&#x1ea1;nh c&#x1ee7;a th&#xf3;i quen"/>
+                <StringItem index="12" value="T&#xf4;i &#x111;&#xe3; b&#xe1;n m&#x1ed9;t tri&#x1ec7;u"/>
+                <StringItem index="13" value="Ng&#xe0;y x&#x1b0;a c&#xf3; m&#x1ed9;t chuy&#x1ec7;n t&#xec;nh"/>
+                <StringItem index="14" value="Nh&#x1eef;ng nguy&#xea;n t&#x1eaf;c th&#xe0;nh c&#xf4;ng"/>
+                <StringItem index="15" value="&#x110;&#xe1;nh th&#x1ee9;c con ng&#x1b0;&#x1edd;i phi th&#x1b0;&#x1edd;ng"/>
+                <StringItem index="16" value="Ch&#xfa;ng ta n&#xea;n s&#x1ed1;ng nh&#x1b0; th&#x1ebf; n&#xe0;o?"/>
+                <StringItem index="17" value="H&#xe0;nh tr&#xec;nh v&#x1ec1; ph&#x1b0;&#x1a1;ng &#x110;&#xf4;ng"/>
+                <StringItem index="18" value="Tin t&#x1ee9;c t&#x1eeb; h&#xe0;nh tinh xa"/>
               </StringArray>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -334,21 +338,21 @@
             <Property name="text" type="java.lang.String" value="&#x110;&#x1a0;N GI&#xc1;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="txtSL">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField5">
+        <Component class="javax.swing.JTextField" name="txtDonGia">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField6">
+        <Component class="javax.swing.JTextField" name="txtMaNV">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -372,26 +376,40 @@
                   </Border>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="0">
-                    <Column editable="true" title="M&#xe3; s&#xe1;ch" type="java.lang.Object"/>
-                    <Column editable="true" title="T&#xea;n " type="java.lang.Object"/>
-                    <Column editable="true" title="S&#x1ed1; l&#x1b0;&#x1ee3;ng" type="java.lang.Object"/>
+                  <Table columnCount="7" rowCount="2">
+                    <Column editable="true" title="M&#xe3; PN" type="java.lang.Object">
+                      <Data value="12"/>
+                      <Data value="55"/>
+                    </Column>
+                    <Column editable="true" title="M&#xe3; NV" type="java.lang.Object">
+                      <Data value="2"/>
+                      <Data value="5"/>
+                    </Column>
+                    <Column editable="true" title="T&#xea;n s&#xe1;ch" type="java.lang.Object">
+                      <Data value="2"/>
+                      <Data value="5"/>
+                    </Column>
+                    <Column editable="true" title="Ng&#xe0;y nh&#x1ead;p" type="java.lang.Object">
+                      <Data value="2"/>
+                      <Data value="5"/>
+                    </Column>
+                    <Column editable="true" title="S&#x1ed1; l&#x1b0;&#x1ee3;ng" type="java.lang.Object">
+                      <Data value="2"/>
+                      <Data value="null"/>
+                    </Column>
                     <Column editable="true" title="&#x110;&#x1a1;n gi&#xe1;" type="java.lang.Object"/>
                     <Column editable="true" title="Th&#xe0;nh ti&#x1ec1;n" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="altoHead" type="int" value="20"/>
                 <Property name="colorBackgoundHead" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="fc" green="f5" red="ec" type="rgb"/>
                 </Property>
                 <Property name="colorBordeFilas" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="colorBordeHead" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
-                </Property>
-                <Property name="colorFilasBackgound1" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="c8" green="c8" red="c8" type="rgb"/>
                 </Property>
                 <Property name="colorFilasBackgound2" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -405,11 +423,18 @@
                 <Property name="colorForegroundHead" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
-                <Property name="colorSelBackgound" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -459,7 +484,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="rojeru_san.componentes.RSDateChooser" name="rSDateChooser1">
+        <Component class="rojeru_san.componentes.RSDateChooser" name="jdcNgaySinh">
           <Properties>
             <Property name="formatoFecha" type="java.lang.String" value="&#xa;dd/MM/yyyy"/>
             <Property name="placeholder" type="java.lang.String" value="Ng&#xe0;y/Th&#xe1;ng/N&#x103;m"/>
@@ -482,9 +507,21 @@
         </Component>
         <Component class="rojerusan.RSMaterialButtonRectangle" name="rSMaterialButtonRectangle3">
           <Properties>
+            <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSMaterialButtonRectangle3ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="rojerusan.RSMaterialButtonRectangle" name="rSMaterialButtonRectangle4">
+          <Properties>
             <Property name="text" type="java.lang.String" value="Reset"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSMaterialButtonRectangle4ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -500,7 +537,7 @@
         <Property name="text" type="java.lang.String" value="PHI&#x1ebe;U NH&#x1eac;P S&#xc1;CH"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel11">
+    <Component class="javax.swing.JLabel" name="sum">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
