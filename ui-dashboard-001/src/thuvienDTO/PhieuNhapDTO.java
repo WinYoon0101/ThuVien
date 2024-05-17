@@ -11,9 +11,26 @@ import java.util.Date;
  * @author Admin
  */
 public class PhieuNhapDTO {
-    private String strMaND,strMaSach,strHoTen;
+    private String strMaND,strMaSach,strHoTen,strTenSach;
     private int MaPN,SL;
+    private double DonGia;
     private Date dateNgNhap;
+
+    public double getDonGia() {
+        return DonGia;
+    }
+
+    public void setDonGia(double DonGia) {
+        this.DonGia = DonGia;
+    }
+    
+    public String getStrTenSach() {
+        return strTenSach;
+    }
+
+    public void setStrTenSach(String strTenSach) {
+        this.strTenSach = strTenSach;
+    }
 
     public String getStrHoTen() {
         return strHoTen;

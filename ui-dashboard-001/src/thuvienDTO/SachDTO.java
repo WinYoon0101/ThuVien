@@ -10,7 +10,24 @@ package thuvienDTO;
  */
 public class SachDTO {
     private String strTenSach,strImage,strMota,strMaSach;
-    private int MATL, MANXB, NAMXB,TONG,SLCon,TRIGIA;
+    private int MATL, MANXB, NAMXB,SLCon;
+    double TRIGIA,TONG;
+
+    public double getTONG() {
+        return TONG;
+    }
+
+    public void setTONG(double TONG) {
+        this.TONG = TONG;
+    }
+
+    public double getTRIGIA() {
+        return TRIGIA;
+    }
+
+    public void setTRIGIA(double TRIGIA) {
+        this.TRIGIA = TRIGIA;
+    }
 
     public String getStrTenSach() {
         return strTenSach;
@@ -68,13 +85,7 @@ public class SachDTO {
         this.NAMXB = NAMXB;
     }
 
-    public int getTONG() {
-        return TONG;
-    }
-
-    public void setTONG(int TONG) {
-        this.TONG = TONG;
-    }
+    
 
     public int getSLCon() {
         return SLCon;
@@ -84,13 +95,7 @@ public class SachDTO {
         this.SLCon = SLCon;
     }
 
-    public int getTRIGIA() {
-        return TRIGIA;
-    }
-
-    public void setTRIGIA(int TRIGIA) {
-        this.TRIGIA = TRIGIA;
-    }
+    
     
     
 }
