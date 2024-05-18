@@ -130,6 +130,11 @@ public class Form_2 extends javax.swing.JPanel {
         txtTen.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtTen.setEnabled(false);
         txtTen.setOpaque(true);
+        txtTen.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTenKeyTyped(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel7.setText("THỜI GIAN");
@@ -558,6 +563,10 @@ public class Form_2 extends javax.swing.JPanel {
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnThemActionPerformed
+
+    private void txtTenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTenKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTenKeyTyped
 
     
 

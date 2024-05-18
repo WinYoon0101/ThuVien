@@ -11,10 +11,26 @@ import java.util.Date;
  * @author Admin
  */
 public class PhieuMuonDTO {
-    private String MAND,MADG, TRANGTHAI,TENDG,TENSACH;
+    private String MAND,MADG,MASACH, TRANGTHAI,TENDG,TENSACH;
     private int MAPM,SL;
-    private Date ngMuon,ngHenTra;
+    private Date ngMuon,ngHenTra,ngTra;
     private String QUAHAN;
+
+    public Date getNgTra() {
+        return ngTra;
+    }
+
+    public void setNgTra(Date ngTra) {
+        this.ngTra = ngTra;
+    }
+
+    public String getMASACH() {
+        return MASACH;
+    }
+
+    public void setMASACH(String MASACH) {
+        this.MASACH = MASACH;
+    }
 
     public String getMAND() {
         return MAND;
