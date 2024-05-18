@@ -213,6 +213,11 @@ public class Form_2 extends javax.swing.JPanel {
                 btnThemMouseClicked(evt);
             }
         });
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
 
         btnXoa.setText("Xóa");
         btnXoa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -549,6 +554,10 @@ public class Form_2 extends javax.swing.JPanel {
         }
     
     }//GEN-LAST:event_btnCapNhatMouseClicked
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnThemActionPerformed
 
     
 
