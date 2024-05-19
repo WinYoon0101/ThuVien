@@ -302,4 +302,43 @@ if (ngHenTra.isAfter(currentDate) && ngHenTra.isBefore(ngaySapHetHan)) {
 
         return maND;
     }
+    
+    public boolean CapNhatPhieuMuon(PhieuMuonDTO pm) {
+    try {
+        // Tạo câu lệnh SQL để cập nhật phiếu mượn
+        String sql = "UPDATE PHIEUMUON SET MADG = ?, MASACH = ?, SL = ?, TGTRA = ? WHERE MAPM = ?";
+
+        // Mở kết nối đến cơ sở dữ liệu
+        con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
+
+        // Chuẩn bị câu lệnh SQL
+        ps = con.prepareStatement(sql);
+        ps.setString(1, pm.getMADG());
+        ps.setString(2, pm.getMASACH());
+        ps.setInt(3, pm.getSL());
+        ps.setDate(4, new java.sql.Date(pm.getNgHenTra().getTime()));
+        ps.setInt(5, pm.getMAPM());
+
+        // Thực thi câu lệnh và kiểm tra xem có bao nhiêu bản ghi đã được cập nhật
+        int rowCount = ps.executeUpdate();
+
+        // Trả về true nếu có ít nhất một bản ghi đã được cập nhật
+        return rowCount > 0;
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+        return false; // Trả về false nếu có lỗi xảy ra
+    } finally {
+        // Đóng các tài nguyên sau khi sử dụng xong
+        try {
+            if (ps != null) {
+                ps.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+}
 }

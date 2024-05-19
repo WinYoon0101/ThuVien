@@ -10,9 +10,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import oracle.jdbc.clio.annotations.Debug.Level;
 import thuvienDAO.PhieuMuonDAO;
 import thuvienDTO.PhieuMuonDTO;
@@ -84,7 +86,7 @@ public class Form_3 extends javax.swing.JPanel {
         btnMuon = new javax.swing.JLabel();
         btnXoa = new javax.swing.JLabel();
         btnSua = new javax.swing.JLabel();
-        rSMetroTextPlaceHolder1 = new rojerusan.RSMetroTextPlaceHolder();
+        txtsearch = new rojerusan.RSMetroTextPlaceHolder();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -174,7 +176,18 @@ public class Form_3 extends javax.swing.JPanel {
             }
         });
 
-        rSMetroTextPlaceHolder1.setText("Nhập nội dung tìm kiếm");
+        txtsearch.setText("Nhập nội dung tìm kiếm");
+        txtsearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtsearchKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtsearchKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtsearchKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 204));
@@ -221,7 +234,7 @@ public class Form_3 extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
-                .addComponent(rSMetroTextPlaceHolder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
         jPanel2Layout.setVerticalGroup(
@@ -230,7 +243,7 @@ public class Form_3 extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addComponent(rSMetroTextPlaceHolder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -385,6 +398,21 @@ public class Form_3 extends javax.swing.JPanel {
     
     }//GEN-LAST:event_btnTraMouseClicked
 
+    private void txtsearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsearchKeyTyped
+        
+    }//GEN-LAST:event_txtsearchKeyTyped
+
+    private void txtsearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsearchKeyPressed
+        
+    }//GEN-LAST:event_txtsearchKeyPressed
+
+    private void txtsearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsearchKeyReleased
+        DefaultTableModel ob = (DefaultTableModel) table.getModel();
+        TableRowSorter <DefaultTableModel> obj  = new TableRowSorter<>(ob) ;
+        table.setRowSorter(obj);
+        obj.setRowFilter(RowFilter.regexFilter(txtsearch.getText()) );
+    }//GEN-LAST:event_txtsearchKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnMuon;
@@ -397,8 +425,8 @@ public class Form_3 extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private rojerusan.RSMetroTextPlaceHolder rSMetroTextPlaceHolder1;
     private rojeru_san.complementos.RSTableMetro table;
+    private rojerusan.RSMetroTextPlaceHolder txtsearch;
     // End of variables declaration//GEN-END:variables
 
    

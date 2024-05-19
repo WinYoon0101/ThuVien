@@ -173,6 +173,11 @@ public class Form_2 extends javax.swing.JPanel {
         txtDonGia.setEnabled(false);
 
         txtMaNV.setBorder(null);
+        txtMaNV.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtMaNVFocusLost(evt);
+            }
+        });
         txtMaNV.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtMaNVKeyPressed(evt);
@@ -533,6 +538,10 @@ public class Form_2 extends javax.swing.JPanel {
         return;
     }
     
+    if (txtTen.getText().isEmpty() || txtMaNV.getText().isEmpty() || txtMaPN.getText().isEmpty() || txtSL.getText().isEmpty() || txtDonGia.getText().isEmpty() || jdcNgaySinh.getDatoFecha() == null ) {
+    JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+    return;}
+    
         try {
             PhieuNhapDTO pnDto = new PhieuNhapDTO();
             pnDto.setMaPN(Integer.parseInt(txtMaPN.getText()));
@@ -567,6 +576,22 @@ public class Form_2 extends javax.swing.JPanel {
     private void txtTenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTenKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTenKeyTyped
+
+    private void txtMaNVFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMaNVFocusLost
+        try {
+                pn1 = pn.showTenNV(txtMaNV.getText());
+                StringBuilder names = new StringBuilder();
+                for (PhieuNhapDTO dto : pn1) {
+                    if (names.length() > 0) {
+                        names.append(", ");
+                    }
+                    names.append(dto.getStrHoTen());
+                }
+                txtTen.setText(names.toString());
+            } catch (Exception ex) {
+                Logger.getLogger(Form_2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_txtMaNVFocusLost
 
     
 

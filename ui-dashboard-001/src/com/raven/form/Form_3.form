@@ -208,7 +208,7 @@
                       <EmptySpace pref="74" max="32767" attributes="0"/>
                       <Component id="jLabel6" min="-2" pref="58" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="rSMetroTextPlaceHolder1" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtsearch" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -219,7 +219,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="rSMetroTextPlaceHolder1" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtsearch" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -322,10 +322,15 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSuaMouseClicked"/>
               </Events>
             </Component>
-            <Component class="rojerusan.RSMetroTextPlaceHolder" name="rSMetroTextPlaceHolder1">
+            <Component class="rojerusan.RSMetroTextPlaceHolder" name="txtsearch">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nh&#x1ead;p n&#x1ed9;i dung t&#xec;m ki&#x1ebf;m"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtsearchKeyPressed"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtsearchKeyReleased"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtsearchKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>

@@ -4,7 +4,9 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import thuvienDAO.PhieuMuonDAO;
+import thuvienDTO.PhieuMuonDTO;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -74,7 +76,7 @@ public class ChiTietPhieuMuon extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jPanel28 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        rSMaterialButtonRectangle2 = new rojerusan.RSMaterialButtonRectangle();
+        btnCapNhat = new rojerusan.RSMaterialButtonRectangle();
         jdcNgHenTra = new rojeru_san.componentes.RSDateChooser();
         txtMASACH = new app.bolivia.swing.JCTextField();
         txtSL = new app.bolivia.swing.JCTextField();
@@ -255,12 +257,12 @@ public class ChiTietPhieuMuon extends javax.swing.JFrame {
                 .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        rSMaterialButtonRectangle2.setBackground(new java.awt.Color(53, 58, 85));
-        rSMaterialButtonRectangle2.setText("CẬP NHẬT");
-        rSMaterialButtonRectangle2.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        rSMaterialButtonRectangle2.addActionListener(new java.awt.event.ActionListener() {
+        btnCapNhat.setBackground(new java.awt.Color(53, 58, 85));
+        btnCapNhat.setText("CẬP NHẬT");
+        btnCapNhat.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSMaterialButtonRectangle2ActionPerformed(evt);
+                btnCapNhatActionPerformed(evt);
             }
         });
 
@@ -470,7 +472,7 @@ public class ChiTietPhieuMuon extends javax.swing.JFrame {
                                     .addComponent(txtSL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(130, 130, 130)
-                        .addComponent(rSMaterialButtonRectangle2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -498,7 +500,7 @@ public class ChiTietPhieuMuon extends javax.swing.JFrame {
                     .addComponent(jdcNgHenTra, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(rSMaterialButtonRectangle2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
 
@@ -521,9 +523,34 @@ public class ChiTietPhieuMuon extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_rSMaterialButtonRectangle1ActionPerformed
 
-    private void rSMaterialButtonRectangle2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rSMaterialButtonRectangle2ActionPerformed
+    private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
+        if (txtMADG.getText().isEmpty() || txtMASACH.getText().isEmpty() || txtMAPM.getText().isEmpty() || txtSL.getText().isEmpty()  || jdcNgHenTra.getDatoFecha() == null ) {
+    JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+    return; // Stop further execution if any required field is empty
+}
+        
+        try {
+    PhieuMuonDTO pmDto = new PhieuMuonDTO();
+    pmDto.setMAPM(Integer.parseInt(txtMAPM.getText()));
+    pmDto.setMADG(txtMADG.getText());
+    pmDto.setMASACH(txtMASACH.getText());
+    pmDto.setSL(Integer.parseInt(txtSL.getText()));
+    pmDto.setNgHenTra(new java.sql.Date(jdcNgHenTra.getDatoFecha().getTime())); // Ngày trả từ DatePicker
+
+    boolean success = pm.CapNhatPhieuMuon(pmDto);
+    if (success) {
+        JOptionPane.showMessageDialog(this, "Đã cập nhật thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        // Thực hiện các thao tác cần thiết sau khi cập nhật thành công
+        dispose();
+        
+    } else {
+        JOptionPane.showMessageDialog(this, "Cập nhật thất bại.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+    }
+} catch (Exception ex) {
+    JOptionPane.showMessageDialog(this, "Có lỗi xảy ra: " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
+}
+        
+    }//GEN-LAST:event_btnCapNhatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -562,6 +589,7 @@ public class ChiTietPhieuMuon extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojerusan.RSMaterialButtonRectangle btnCapNhat;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
@@ -587,7 +615,6 @@ public class ChiTietPhieuMuon extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel36;
     private rojeru_san.componentes.RSDateChooser jdcNgHenTra;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle1;
-    private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle2;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle3;
     private app.bolivia.swing.JCTextField txtMADG;
     private app.bolivia.swing.JCTextField txtMAPM;
