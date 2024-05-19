@@ -6,7 +6,9 @@ package com.raven.form;
 
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import thuvienDAO.PhieuMuonDAO;
 import thuvienDTO.PhieuMuonDTO;
 
@@ -68,7 +70,7 @@ public class PhieuTraSach extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        rSMetroTextPlaceHolder1 = new rojerusan.RSMetroTextPlaceHolder();
+        txtsearch = new rojerusan.RSMetroTextPlaceHolder();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -81,7 +83,12 @@ public class PhieuTraSach extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        rSMetroTextPlaceHolder1.setText("Tìm kiếm");
+        txtsearch.setText("Tìm kiếm");
+        txtsearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtsearchKeyReleased(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 204));
@@ -110,7 +117,7 @@ public class PhieuTraSach extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(rSMetroTextPlaceHolder1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
         jPanel3Layout.setVerticalGroup(
@@ -125,7 +132,7 @@ public class PhieuTraSach extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addComponent(rSMetroTextPlaceHolder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,6 +200,13 @@ public class PhieuTraSach extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
 
+    private void txtsearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsearchKeyReleased
+        DefaultTableModel ob = (DefaultTableModel) table.getModel();
+        TableRowSorter <DefaultTableModel> obj  = new TableRowSorter<>(ob) ;
+        table.setRowSorter(obj);
+        obj.setRowFilter(RowFilter.regexFilter(txtsearch.getText()) );
+    }//GEN-LAST:event_txtsearchKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -234,7 +248,7 @@ public class PhieuTraSach extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
-    private rojerusan.RSMetroTextPlaceHolder rSMetroTextPlaceHolder1;
     private rojeru_san.complementos.RSTableMetro table;
+    private rojerusan.RSMetroTextPlaceHolder txtsearch;
     // End of variables declaration//GEN-END:variables
 }
