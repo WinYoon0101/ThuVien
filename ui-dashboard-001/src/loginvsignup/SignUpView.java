@@ -8,6 +8,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 import static thuvienGUI.InitPublic.getID;
 
@@ -340,6 +348,62 @@ public class SignUpView extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
+        
+        //Gửi email chúc mừng đăng ký thành công
+        
+        try{
+        
+        if (txtMAIL.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Thông tin gmail không được để trống.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        return;
+        }
+        
+        
+        final String username = "duong14104@gmail.com";
+//                final String password = "UITParking2052~";
+                final String password = "wupu bcet izcf bjlm";
+        
+        Properties p = new Properties();
+p.put("mail.smtp.auth", "true");
+p.put("mail.smtp.starttls.enable", "true");
+p.put("mail.smtp.host", "smtp.gmail.com");
+p.put("mail.smtp.port", 587);
+  
+Session session = Session.getInstance(p,
+ new javax.mail.Authenticator() {
+ protected PasswordAuthentication getPasswordAuthentication() {
+   return new PasswordAuthentication(username, password);
+ }
+});
+
+try {
+
+                    Message message = new MimeMessage(session);
+                    message.setFrom(new InternetAddress(txtMAIL.getText()));
+                    message.setRecipients(
+                            Message.RecipientType.TO,
+                            InternetAddress.parse(txtMAIL.getText())
+                    );
+                    message.setSubject("Welcome to UIT Thư Viện");
+                    message.setText("Cảm ơn vì đã đăng ký tài khoản. Chúc bạn có trải nghiệm tốt với UIT Thư viện  " );
+
+                    Transport.send(message);
+
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+
+                   
+                 
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        
+        
+        
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void rSButtonHover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover1ActionPerformed

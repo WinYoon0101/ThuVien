@@ -55,7 +55,7 @@
                       <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace pref="32" max="-2" attributes="0"/>
-                          <Component id="jCTextField1" min="-2" pref="325" max="-2" attributes="0"/>
+                          <Component id="txtOTPModified" min="-2" pref="325" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="32" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -85,7 +85,7 @@
                   <EmptySpace pref="59" max="32767" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jCTextField1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtOTPModified" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="rSButtonHover1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
@@ -120,6 +120,9 @@
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSButtonHover1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -136,12 +139,12 @@
             <Property name="text" type="java.lang.String" value="Enter OTP send to your phone number"/>
           </Properties>
         </Component>
-        <Component class="app.bolivia.swing.JCTextField" name="jCTextField1">
+        <Component class="app.bolivia.swing.JCTextField" name="txtOTPModified">
           <Properties>
             <Property name="placeholder" type="java.lang.String" value="Nh&#x1ead;p OTP nh&#x1ead;n &#x111;&#x1b0;&#x1ee3;c v&#xe0;o &#x111;&#xe2;y"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtOTPModifiedActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">

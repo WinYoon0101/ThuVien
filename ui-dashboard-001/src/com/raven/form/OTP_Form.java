@@ -4,6 +4,9 @@
  */
 package com.raven.form;
 
+import static com.raven.form.OTP_User.pRandomOTP;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Admin
@@ -30,7 +33,7 @@ public class OTP_Form extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         rSButtonHover1 = new rojerusan.RSButtonHover();
         jLabel3 = new javax.swing.JLabel();
-        jCTextField1 = new app.bolivia.swing.JCTextField();
+        txtOTPModified = new app.bolivia.swing.JCTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -46,6 +49,11 @@ public class OTP_Form extends javax.swing.JFrame {
         rSButtonHover1.setBackground(new java.awt.Color(153, 0, 153));
         rSButtonHover1.setText("Verify");
         rSButtonHover1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        rSButtonHover1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setBackground(new java.awt.Color(153, 0, 153));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -53,10 +61,10 @@ public class OTP_Form extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Enter OTP send to your phone number");
 
-        jCTextField1.setPlaceholder("Nhập OTP nhận được vào đây");
-        jCTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtOTPModified.setPlaceholder("Nhập OTP nhận được vào đây");
+        txtOTPModified.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCTextField1ActionPerformed(evt);
+                txtOTPModifiedActionPerformed(evt);
             }
         });
 
@@ -84,7 +92,7 @@ public class OTP_Form extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOTPModified, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 32, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -106,7 +114,7 @@ public class OTP_Form extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jCTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtOTPModified, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(rSButtonHover1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
@@ -128,9 +136,21 @@ public class OTP_Form extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCTextField1ActionPerformed
+    private void txtOTPModifiedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOTPModifiedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCTextField1ActionPerformed
+    }//GEN-LAST:event_txtOTPModifiedActionPerformed
+
+    private void rSButtonHover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover1ActionPerformed
+        if (Integer.parseInt(txtOTPModified.getText()) == pRandomOTP) {
+            JOptionPane.showMessageDialog(null, "OTP chính xác!");
+            ThayMatKhau _modifypassword = new ThayMatKhau();
+            _modifypassword.show();
+            _modifypassword.setLocationRelativeTo(null);
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Mã OTP không hợp lệ!");
+        }
+    }//GEN-LAST:event_rSButtonHover1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,12 +188,12 @@ public class OTP_Form extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private app.bolivia.swing.JCTextField jCTextField1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private rojerusan.RSButtonHover rSButtonHover1;
+    private app.bolivia.swing.JCTextField txtOTPModified;
     // End of variables declaration//GEN-END:variables
 }

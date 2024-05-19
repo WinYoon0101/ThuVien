@@ -178,6 +178,11 @@ public class Form_2 extends javax.swing.JPanel {
                 txtMaNVFocusLost(evt);
             }
         });
+        txtMaNV.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txtMaNVPropertyChange(evt);
+            }
+        });
         txtMaNV.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtMaNVKeyPressed(evt);
@@ -592,6 +597,24 @@ public class Form_2 extends javax.swing.JPanel {
                 Logger.getLogger(Form_2.class.getName()).log(Level.SEVERE, null, ex);
             }
     }//GEN-LAST:event_txtMaNVFocusLost
+
+    private void txtMaNVPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtMaNVPropertyChange
+        
+            try {
+                pn1 = pn.showTenNV(txtMaNV.getText());
+                StringBuilder names = new StringBuilder();
+                for (PhieuNhapDTO dto : pn1) {
+                    if (names.length() > 0) {
+                        names.append(", ");
+                    }
+                    names.append(dto.getStrHoTen());
+                }
+                txtTen.setText(names.toString());
+            } catch (Exception ex) {
+                Logger.getLogger(Form_2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+    }//GEN-LAST:event_txtMaNVPropertyChange
 
     
 

@@ -4,6 +4,7 @@
  */
 package thuvienDAO;
 
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,10 +17,39 @@ import static thuvienGUI.InitPublic.getID;
  * @author Admin
  */
 public class NguoiDungDAO {
+    java.sql.Connection con = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    
     SQLConnectUnit connect;
     public static SQLConnection connection = new SQLConnection("UITParking", "uitparking", "orcl");
     ;
     public static PreparedStatement pst = null;
+    
+    
+    public String showEmail(String username) throws Exception {
+    try {
+        String sql = "SELECT MAIL FROM NGUOIDUNG WHERE USERNAME = ?";
+        
+        con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
+        
+        ps = con.prepareStatement(sql);
+        ps.setString(1, username);
+        
+        ResultSet rs = ps.executeQuery();
+        
+        if (rs.next()) {
+            return rs.getString("MAIL");
+        }
+        
+        con.close();
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        throw new Exception("Error retrieving data", ex);
+    }
+    return null; // Trả về null nếu không tìm thấy
+}
+
     
     
     public ArrayList<NguoiDungDTO> docDB(String condition, String orderBy) throws Exception {

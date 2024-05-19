@@ -4,6 +4,7 @@
  */
 package loginvsignup;
 
+import com.raven.form.OTP_User;
 import com.raven.main.Main;
 import java.awt.Color;
 import java.sql.Connection;
@@ -214,6 +215,11 @@ public class LoginView extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel12.setText("Forget Password ?");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
 
         checkBox.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         checkBox.setText("Show Password");
@@ -440,6 +446,13 @@ try {
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        OTP_User _OTPform = new OTP_User();
+                _OTPform.show();
+                _OTPform.setLocationRelativeTo(null);
+                dispose();
+    }//GEN-LAST:event_jLabel12MouseClicked
     
 //    protected void paintComponent(Graphics grphcs) {
 //        Graphics2D g2 = (Graphics2D) grphcs;
