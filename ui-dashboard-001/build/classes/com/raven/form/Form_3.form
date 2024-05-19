@@ -198,11 +198,11 @@
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Component id="btnMuon" min="-2" pref="58" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="58" max="-2" attributes="0"/>
+                      <Component id="btnTra" min="-2" pref="58" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" pref="58" max="-2" attributes="0"/>
+                      <Component id="btnSua" min="-2" pref="58" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" pref="58" max="-2" attributes="0"/>
+                      <Component id="btnXoa" min="-2" pref="58" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" pref="101" max="-2" attributes="0"/>
                       <EmptySpace pref="74" max="32767" attributes="0"/>
@@ -227,9 +227,9 @@
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="btnMuon" max="32767" attributes="0"/>
-                                      <Component id="jLabel1" max="32767" attributes="0"/>
-                                      <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnTra" max="32767" attributes="0"/>
+                                      <Component id="btnSua" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btnXoa" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel5" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -241,7 +241,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="btnTra">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
@@ -257,6 +257,9 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnTraMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="btnMuon">
               <Properties>
@@ -278,7 +281,7 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMuonMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="btnXoa">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
@@ -295,8 +298,11 @@
                 <Property name="iconTextGap" type="int" value="13"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoaMouseClicked"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="btnSua">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
@@ -312,6 +318,9 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSuaMouseClicked"/>
+              </Events>
             </Component>
             <Component class="rojerusan.RSMetroTextPlaceHolder" name="rSMetroTextPlaceHolder1">
               <Properties>

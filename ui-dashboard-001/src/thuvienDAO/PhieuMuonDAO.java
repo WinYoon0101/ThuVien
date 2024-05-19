@@ -152,6 +152,30 @@ if (ngHenTra.isAfter(currentDate) && ngHenTra.isBefore(ngaySapHetHan)) {
         }
     }
 }
+    
+    public boolean XoaPM(int mapm) throws Exception {
+        
+        try {
+            String sql = "DELETE FROM PHIEUMUON WHERE MAPM = ?";
+            con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, mapm);
+
+            // Execute the delete query and return true if at least one row was deleted
+            return ps.executeUpdate() > 0;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false; // Return false if an error occurs
+        } finally {
+            // Ensure resources are closed after use
+            if (ps != null) {
+                ps.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+    }
 
     public int getMaxMaPM() throws Exception {
     int maxMaPM = 0;
@@ -196,6 +220,86 @@ if (ngHenTra.isAfter(currentDate) && ngHenTra.isBefore(ngaySapHetHan)) {
     return null; // Trả về null nếu không tìm thấy
 }
 
+    public boolean CapNhatTrangThai(int mapm) throws Exception {
     
+    try {
+        String sql = "UPDATE PHIEUMUON SET TRANGTHAI = 'Đã trả' WHERE MAPM = ?";
+        con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
+        ps = con.prepareStatement(sql);
+        ps.setInt(1, mapm);
+
+        // Execute the update query and return true if at least one row was updated
+        return ps.executeUpdate() > 0;
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        return false; // Return false if an error occurs
+    } finally {
+        // Ensure resources are closed after use
+        if (ps != null) {
+            ps.close();
+        }
+        if (con != null) {
+            con.close();
+        }
+    }
+}
+
+    public String getMaSach(String tenSach) throws SQLException {
+        String maSach = null;
+
+        try {
+            String sql = "SELECT MASACH FROM SACH WHERE TENSACH = ?";
+            con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
+            ps = con.prepareStatement(sql);
+            ps.setString(1, tenSach);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                maSach = rs.getString("MASACH");
+            }
+        } finally {
+            // Đảm bảo đóng tài nguyên, ngay cả khi có ngoại lệ xảy ra
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+
+        return maSach;
+    }
     
+    public String getMaND(String tenND) throws SQLException {
+        String maND = null;
+        
+
+        try {
+            String sql = "SELECT MAND FROM NGUOIDUNG WHERE TENND = ?";
+            con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
+            ps = con.prepareStatement(sql);
+            ps.setString(1, tenND);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                maND = rs.getString("MAND");
+            }
+        } finally {
+            // Đảm bảo đóng tài nguyên, ngay cả khi có ngoại lệ xảy ra
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+
+        return maND;
+    }
 }

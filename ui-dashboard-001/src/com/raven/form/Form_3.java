@@ -9,8 +9,10 @@ import com.itextpdf.text.log.Logger;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import oracle.jdbc.clio.annotations.Debug.Level;
 import thuvienDAO.PhieuMuonDAO;
 import thuvienDTO.PhieuMuonDTO;
@@ -78,10 +80,10 @@ public class Form_3 extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         table = new rojeru_san.complementos.RSTableMetro();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        btnTra = new javax.swing.JLabel();
         btnMuon = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        btnXoa = new javax.swing.JLabel();
+        btnSua = new javax.swing.JLabel();
         rSMetroTextPlaceHolder1 = new rojerusan.RSMetroTextPlaceHolder();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -119,13 +121,18 @@ public class Form_3 extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_back_to_65px_1.png"))); // NOI18N
-        jLabel1.setText("TRẢ");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnTra.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnTra.setForeground(new java.awt.Color(0, 0, 204));
+        btnTra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnTra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_back_to_65px_1.png"))); // NOI18N
+        btnTra.setText("TRẢ");
+        btnTra.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnTra.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnTra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTraMouseClicked(evt);
+            }
+        });
 
         btnMuon.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnMuon.setForeground(new java.awt.Color(0, 0, 204));
@@ -140,22 +147,32 @@ public class Form_3 extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_delete_55px.png"))); // NOI18N
-        jLabel3.setText("XÓA");
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIconTextGap(13);
-        jLabel3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnXoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnXoa.setForeground(new java.awt.Color(0, 0, 204));
+        btnXoa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_delete_55px.png"))); // NOI18N
+        btnXoa.setText("XÓA");
+        btnXoa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnXoa.setIconTextGap(13);
+        btnXoa.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnXoa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnXoaMouseClicked(evt);
+            }
+        });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_settings_70px.png"))); // NOI18N
-        jLabel4.setText("SỬA");
-        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSua.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSua.setForeground(new java.awt.Color(0, 0, 204));
+        btnSua.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_settings_70px.png"))); // NOI18N
+        btnSua.setText("SỬA");
+        btnSua.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSua.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSua.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSuaMouseClicked(evt);
+            }
+        });
 
         rSMetroTextPlaceHolder1.setText("Nhập nội dung tìm kiếm");
 
@@ -194,11 +211,11 @@ public class Form_3 extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addComponent(btnMuon, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnTra, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
@@ -220,9 +237,9 @@ public class Form_3 extends javax.swing.JPanel {
                             .addComponent(jLabel6)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(btnMuon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnTra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnXoa, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
@@ -278,12 +295,102 @@ public class Form_3 extends javax.swing.JPanel {
         updateDB();
     }//GEN-LAST:event_jLabel6MouseClicked
 
+    private void btnSuaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaMouseClicked
+        int selectedRow = table.getSelectedRow();
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(this, "Vui lòng chọn phiếu mượn để sửa!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    
+    ChiTietPhieuMuon fn = new ChiTietPhieuMuon();
+         fn.show();
+         fn.setLocationRelativeTo(null);
+         
+         TableModel model = table.getModel();
+    String maPM = model.getValueAt(selectedRow, 0).toString();
+    String sl = model.getValueAt(selectedRow, 4).toString();
+    Date nghen = (Date) model.getValueAt(selectedRow, 6);
+    
+    String tenDocGia = model.getValueAt(selectedRow, 2).toString();
+    String tenSach = model.getValueAt(selectedRow, 3).toString();
+    
+    fn.setMAPM(maPM);
+    fn.setSL(sl);
+    fn.setngHen(nghen);
+    
+    fn.setMADG(tenDocGia);
+    fn.setMASACH(tenSach);
+
+    
+    }//GEN-LAST:event_btnSuaMouseClicked
+
+    private void btnXoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaMouseClicked
+        int selectedRow = table.getSelectedRow();
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(this, "Vui lòng chọn phiếu mượn để xóa!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    try {
+            int mapn = Integer.parseInt(table.getValueAt(selectedRow, 0).toString());
+            
+            
+            int confirmation = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn xóa phiếu mượn này?", "Xác nhận", JOptionPane.YES_NO_OPTION);
+    if (confirmation == JOptionPane.YES_OPTION) {
+        boolean success = pm.XoaPM(mapn);
+        if (success) {
+            JOptionPane.showMessageDialog(this, "Đã xóa phiếu mượn!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            
+            updateDB(); // Update the table to reflect changes
+        } else {
+            JOptionPane.showMessageDialog(this, "Xóa phiếu mượn thất bại.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Hủy bỏ việc xóa phiếu mượn.", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+    }
+        } catch (Exception ex) {
+            
+            JOptionPane.showMessageDialog(this, "Có lỗi xảy ra: " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
+    
+    }//GEN-LAST:event_btnXoaMouseClicked
+
+    private void btnTraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTraMouseClicked
+        int selectedRow = table.getSelectedRow();
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(this, "Vui lòng chọn phiếu mượn để trả!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    
+    try {
+        // Assuming the first column (index 0) contains the MAPM
+        int mapm = Integer.parseInt(table.getValueAt(selectedRow, 0).toString());
+
+        // Ask for confirmation
+        int confirmation = JOptionPane.showConfirmDialog(this, "Độc giả đã trả đủ sách ?", "Xác nhận", JOptionPane.YES_NO_OPTION);
+        if (confirmation == JOptionPane.YES_OPTION) {
+            boolean success = pm.CapNhatTrangThai(mapm);
+            if (success) {
+                JOptionPane.showMessageDialog(this, "Đã trả sách thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                
+                updateDB(); // Update the table to reflect changes
+            } else {
+                JOptionPane.showMessageDialog(this, "Trả sách thất bại!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Hủy bỏ việc cập nhật trạng thái.", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Có lỗi xảy ra: " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    }//GEN-LAST:event_btnTraMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnMuon;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel btnSua;
+    private javax.swing.JLabel btnTra;
+    private javax.swing.JLabel btnXoa;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenuItem jMenuItem1;
