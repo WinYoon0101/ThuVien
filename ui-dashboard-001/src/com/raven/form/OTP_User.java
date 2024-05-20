@@ -23,6 +23,10 @@ import thuvienDAO.NguoiDungDAO;
 public class OTP_User extends javax.swing.JFrame {
     public static int pRandomOTP;
     
+    public static String pEmailSentEmail;
+    
+    public static String pEmail;
+    
     NguoiDungDAO pm = new NguoiDungDAO();
     
     java.sql.Connection con = null;
@@ -59,7 +63,6 @@ public class OTP_User extends javax.swing.JFrame {
         labelVerify = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(395, 645));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -161,9 +164,9 @@ public class OTP_User extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtuser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtuser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -202,6 +205,8 @@ public class OTP_User extends javax.swing.JFrame {
         }
         
         pRandomOTP = randomOTP();
+        pEmailSentEmail = txtuser.getText();
+        pEmail=txtEmailModified.getText();
         final String username = "duong14104@gmail.com";
 //                final String password = "UITParking2052~";
                 final String password = "wupu bcet izcf bjlm";

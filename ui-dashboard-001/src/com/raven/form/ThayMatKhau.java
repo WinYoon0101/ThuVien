@@ -4,11 +4,30 @@
  */
 package com.raven.form;
 
+import static com.raven.form.OTP_User.pEmail;
+import static com.raven.form.OTP_User.pEmailSentEmail;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.swing.JOptionPane;
+import loginvsignup.LoginView;
+
 /**
  *
  * @author Admin
  */
 public class ThayMatKhau extends javax.swing.JFrame {
+    java.sql.Connection con = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
 
     /**
      * Creates new form OTP_Form
@@ -27,34 +46,32 @@ public class ThayMatKhau extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        rSButtonHover1 = new rojerusan.RSButtonHover();
+        btnSubmitModifiedPassword = new rojerusan.RSButtonHover();
         jLabel3 = new javax.swing.JLabel();
-        jCTextField1 = new app.bolivia.swing.JCTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jCTextField2 = new app.bolivia.swing.JCTextField();
+        txtNewPasswordModified = new javax.swing.JPasswordField();
+        txtConfirmPasswordModified = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        rSButtonHover1.setBackground(new java.awt.Color(153, 0, 153));
-        rSButtonHover1.setText("Submit");
-        rSButtonHover1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnSubmitModifiedPassword.setBackground(new java.awt.Color(153, 0, 153));
+        btnSubmitModifiedPassword.setText("Submit");
+        btnSubmitModifiedPassword.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnSubmitModifiedPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitModifiedPasswordActionPerformed(evt);
+            }
+        });
 
         jLabel3.setBackground(new java.awt.Color(153, 0, 153));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 0, 153));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Change Password");
-
-        jCTextField1.setPlaceholder("Nhập mật khẩu mới");
-        jCTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCTextField1ActionPerformed(evt);
-            }
-        });
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Login-amico (1).png"))); // NOI18N
@@ -65,52 +82,42 @@ public class ThayMatKhau extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Confirm New Password");
 
-        jCTextField2.setPlaceholder("Xác nhận mật khẩu mới");
-        jCTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCTextField2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel5)
-                        .addComponent(jCTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel7)
-                        .addComponent(jCTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(rSButtonHover1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)))
-                .addGap(40, 40, 40))
+                        .addComponent(txtNewPasswordModified, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtConfirmPasswordModified, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnSubmitModifiedPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabel3)
-                .addGap(36, 36, 36)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel5)
-                .addGap(28, 28, 28)
-                .addComponent(jCTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
+                .addComponent(txtNewPasswordModified, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel7)
-                .addGap(27, 27, 27)
-                .addComponent(jCTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(rSButtonHover1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(30, 30, 30)
+                .addComponent(txtConfirmPasswordModified, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(btnSubmitModifiedPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -127,13 +134,90 @@ public class ThayMatKhau extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCTextField1ActionPerformed
+    private void btnSubmitModifiedPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitModifiedPasswordActionPerformed
+        try {
+            con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
+            String sql = "UPDATE NGUOIDUNG SET PASS =  ? WHERE USERNAME = ?";
+            ps = con.prepareStatement(sql);
+            StringBuilder sb = new StringBuilder();
+            if (!new String(txtNewPasswordModified.getPassword()).equals(new String(txtConfirmPasswordModified.getPassword()))) {
+                sb.append("Mật khẩu xác nhận không hợp lệ");
+            }
+            if (sb.length() > 0) {
+                JOptionPane.showMessageDialog(this, sb);
+                return;
+            }
+            
+             char[] passwordChars = txtNewPasswordModified.getPassword();
 
-    private void jCTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCTextField2ActionPerformed
+            // Chuyển đổi mảng ký tự thành chuỗi
+            String password = new String(passwordChars);
+
+            ps.setString(1, password);
+            
+            ps.setString(2, pEmailSentEmail);
+            rs = ps.executeQuery();
+            JOptionPane.showMessageDialog(this, "Thay đổi mật khẩu thành công!");
+            LoginView _login = new LoginView();
+            _login.show();
+            _login.setLocationRelativeTo(null);
+            dispose();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        
+        
+        //Gửi email đã thay đổi mật khẩu
+        
+        try{
+        
+        
+        
+        
+        
+        final String username = "duong14104@gmail.com";
+//                final String password = "UITParking2052~";
+                final String password = "wupu bcet izcf bjlm";
+        
+        Properties p = new Properties();
+p.put("mail.smtp.auth", "true");
+p.put("mail.smtp.starttls.enable", "true");
+p.put("mail.smtp.host", "smtp.gmail.com");
+p.put("mail.smtp.port", 587);
+  
+Session session = Session.getInstance(p,
+ new javax.mail.Authenticator() {
+ protected PasswordAuthentication getPasswordAuthentication() {
+   return new PasswordAuthentication(username, password);
+ }
+});
+
+try {
+
+                    Message message = new MimeMessage(session);
+                    message.setFrom(new InternetAddress(pEmail));
+                    message.setRecipients(
+                            Message.RecipientType.TO,
+                            InternetAddress.parse(pEmail)
+                    );
+                    message.setSubject("Mật khẩu của bạn đã được thay đổi");
+                    message.setText("Chúng tôi muốn để bạn biết rằng mật khẩu UIT Thư viện của bạn đã được thay đổi hôm nay " );
+
+                    Transport.send(message);
+
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+
+                   
+                 
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_btnSubmitModifiedPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,13 +258,13 @@ public class ThayMatKhau extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private app.bolivia.swing.JCTextField jCTextField1;
-    private app.bolivia.swing.JCTextField jCTextField2;
+    private rojerusan.RSButtonHover btnSubmitModifiedPassword;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private rojerusan.RSButtonHover rSButtonHover1;
+    private javax.swing.JPasswordField txtConfirmPasswordModified;
+    private javax.swing.JPasswordField txtNewPasswordModified;
     // End of variables declaration//GEN-END:variables
 }
