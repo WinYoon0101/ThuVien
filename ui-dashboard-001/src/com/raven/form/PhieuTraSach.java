@@ -25,7 +25,7 @@ public class PhieuTraSach extends javax.swing.JFrame {
     public PhieuTraSach() {
         initComponents();
         dtm = new DefaultTableModel();
-        String tieude[] = new String[]{ "Mã Phiếu", "Mã NV","Tên độc giả", "Tên sách","Số lượng",
+        String tieude[] = new String[]{ "Mã Phiếu", "Mã NV","Mã độc giả","Tên độc giả", "Tên sách","Số lượng",
             "Ngày trả"};
         dtm.setColumnIdentifiers(tieude);
         table.setModel(dtm);
@@ -49,12 +49,13 @@ public class PhieuTraSach extends javax.swing.JFrame {
     String tenDG = dto.getTENDG();
     String tenSach = dto.getTENSACH();
     int sl = dto.getSL();
+    String madg=dto.getMADG();
     // Assuming this is a java.util.Date
     Date ngTra = dto.getNgTra();
     
     
     
-    Object[] row = {mapm, maNV,tenDG,tenSach,sl,ngTra };
+    Object[] row = {mapm, maNV,madg,tenDG,tenSach,sl,ngTra };
     dtm.addRow(row);
 }
             

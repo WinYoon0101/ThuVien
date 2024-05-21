@@ -120,6 +120,53 @@ if (ngHenTra.isAfter(currentDate) && ngHenTra.isBefore(ngaySapHetHan)) {
         return DSPM;
     }
     
+    public ArrayList<PhieuMuonDTO> getDSPhieuMuon(String MaND) throws Exception {
+        ArrayList<PhieuMuonDTO> DSPM = new ArrayList<>();
+        
+        
+        try {
+            String sql = "SELECT PM.MAPM, PM.MAND, PM.MADG, PM.SL, PM.TGMUON, PM.TGTRA, " +
+                         "ND2.TENND AS TENDG,  S.TENSACH " +
+                         "FROM PHIEUMUON PM " +
+                         "JOIN NGUOIDUNG ND1 ON PM.MAND = ND1.MAND " +
+                         "JOIN NGUOIDUNG ND2 ON PM.MADG = ND2.MAND " +
+                         "JOIN SACH S ON PM.MASACH = S.MASACH " +
+                          "WHERE PM.TRANGTHAI = 'Đang mượn' AND PM.MADG= ? ";
+            
+            con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, MaND);  // Set the MaND parameter in the SQL query
+        
+        ResultSet rs = stmt.executeQuery();
+            
+            
+            
+            while (rs.next()) {
+                PhieuMuonDTO pm = new PhieuMuonDTO();
+                pm.setMAND(rs.getString("MAND"));
+                pm.setMADG(rs.getString("MADG"));
+                pm.setMAPM(rs.getInt("MAPM"));
+                pm.setSL(rs.getInt("SL"));
+                pm.setNgMuon(rs.getDate("TGMUON"));
+                pm.setNgHenTra(rs.getDate("TGTRA"));
+                pm.setTENDG(rs.getString("TENDG"));
+                pm.setTENSACH(rs.getString("TENSACH"));
+                pm.setNgTra(rs.getDate("TGTRA"));
+                
+               
+                DSPM.add(pm);
+            }
+            
+            con.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            throw new Exception("Error retrieving data", ex);
+        }
+        
+        return DSPM;
+    }
+    
     
     
     
