@@ -59,7 +59,7 @@ public class Homepage extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblHoVaTen = new javax.swing.JLabel();
-        rSButtonHover1 = new rojerusan.RSButtonHover();
+        btnMA = new rojerusan.RSButtonHover();
         rSButtonHover2 = new rojerusan.RSButtonHover();
         rSButtonHover3 = new rojerusan.RSButtonHover();
         rSButtonHover4 = new rojerusan.RSButtonHover();
@@ -161,7 +161,7 @@ public class Homepage extends javax.swing.JFrame {
 
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(153, 0, 153));
-        jButton5.setText("Trả sách");
+        jButton5.setText("vvvvvv");
         jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 153)));
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.setFocusPainted(false);
@@ -202,7 +202,7 @@ public class Homepage extends javax.swing.JFrame {
 
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton6.setForeground(new java.awt.Color(153, 0, 153));
-        jButton6.setText("Nộp phạt");
+        jButton6.setText("Phiếu phạt");
         jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 153)));
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.setFocusPainted(false);
@@ -280,11 +280,16 @@ public class Homepage extends javax.swing.JFrame {
         lblHoVaTen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHoVaTen.setText("Họ Tên Khách");
 
-        rSButtonHover1.setBackground(new java.awt.Color(152, 133, 205));
-        rSButtonHover1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/5.png"))); // NOI18N
-        rSButtonHover1.setText("Tài Khoản");
-        rSButtonHover1.setColorHover(new java.awt.Color(115, 87, 170));
-        rSButtonHover1.setIconTextGap(25);
+        btnMA.setBackground(new java.awt.Color(152, 133, 205));
+        btnMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/5.png"))); // NOI18N
+        btnMA.setText("My account");
+        btnMA.setColorHover(new java.awt.Color(115, 87, 170));
+        btnMA.setIconTextGap(15);
+        btnMA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMAActionPerformed(evt);
+            }
+        });
 
         rSButtonHover2.setBackground(new java.awt.Color(152, 133, 205));
         rSButtonHover2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_course_25px.png"))); // NOI18N
@@ -349,7 +354,7 @@ public class Homepage extends javax.swing.JFrame {
                             .addComponent(rSButtonHover5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(rSButtonHover4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(rSButtonHover1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnMA, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelColor1Layout.setVerticalGroup(
@@ -367,7 +372,7 @@ public class Homepage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(rSButtonHover2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(rSButtonHover1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addGroup(panelColor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rSButtonHover4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -435,6 +440,17 @@ public class Homepage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_rSButtonHover2ActionPerformed
 
+    private void btnMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMAActionPerformed
+        try {
+            Myaccount fn = new Myaccount();
+            fn.setVisible(true);
+            fn.setLocationRelativeTo(null);
+            dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnMAActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -476,6 +492,7 @@ public class Homepage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojerusan.RSButtonHover btnMA;
     private com.raven.component.Header header1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
@@ -495,7 +512,6 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JLabel lblMail;
     private com.raven.component.PanelColor panelColor1;
     private com.raven.component.PanelColor1 panelColor11;
-    private rojerusan.RSButtonHover rSButtonHover1;
     private rojerusan.RSButtonHover rSButtonHover2;
     private rojerusan.RSButtonHover rSButtonHover3;
     private rojerusan.RSButtonHover rSButtonHover4;

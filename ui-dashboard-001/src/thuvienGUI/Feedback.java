@@ -56,12 +56,12 @@ public class Feedback extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblHoVaTen = new javax.swing.JLabel();
-        rSButtonHover1 = new rojerusan.RSButtonHover();
         rSButtonHover3 = new rojerusan.RSButtonHover();
         rSButtonHover4 = new rojerusan.RSButtonHover();
         rSButtonHover5 = new rojerusan.RSButtonHover();
         lblMail = new javax.swing.JLabel();
         rSButtonHover2 = new rojerusan.RSButtonHover();
+        rSButtonHover1 = new rojerusan.RSButtonHover();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -77,6 +77,7 @@ public class Feedback extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        rSButtonHover6.setBackground(new java.awt.Color(102, 0, 102));
         rSButtonHover6.setText("Send Feedback");
         rSButtonHover6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
@@ -142,12 +143,6 @@ public class Feedback extends javax.swing.JFrame {
         lblHoVaTen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHoVaTen.setText("Họ Tên Khách");
 
-        rSButtonHover1.setBackground(new java.awt.Color(152, 133, 205));
-        rSButtonHover1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/5.png"))); // NOI18N
-        rSButtonHover1.setText("Tài Khoản");
-        rSButtonHover1.setColorHover(new java.awt.Color(115, 87, 170));
-        rSButtonHover1.setIconTextGap(25);
-
         rSButtonHover3.setBackground(new java.awt.Color(152, 133, 205));
         rSButtonHover3.setForeground(new java.awt.Color(248, 238, 249));
         rSButtonHover3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_dog_house_25px.png"))); // NOI18N
@@ -189,6 +184,17 @@ public class Feedback extends javax.swing.JFrame {
         rSButtonHover2.setText("Feedback");
         rSButtonHover2.setColorHover(new java.awt.Color(115, 87, 170));
         rSButtonHover2.setIconTextGap(20);
+        rSButtonHover2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover2ActionPerformed(evt);
+            }
+        });
+
+        rSButtonHover1.setBackground(new java.awt.Color(152, 133, 205));
+        rSButtonHover1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/5.png"))); // NOI18N
+        rSButtonHover1.setText("My account");
+        rSButtonHover1.setColorHover(new java.awt.Color(115, 87, 170));
+        rSButtonHover1.setIconTextGap(15);
 
         javax.swing.GroupLayout panelColor1Layout = new javax.swing.GroupLayout(panelColor1);
         panelColor1.setLayout(panelColor1Layout);
@@ -204,15 +210,14 @@ public class Feedback extends javax.swing.JFrame {
             .addGroup(panelColor1Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(panelColor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rSButtonHover1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSButtonHover2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelColor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(rSButtonHover3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelColor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(panelColor1Layout.createSequentialGroup()
-                                .addComponent(rSButtonHover5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(rSButtonHover4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(rSButtonHover1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelColor1Layout.createSequentialGroup()
+                            .addComponent(rSButtonHover5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(48, 48, 48)
+                            .addComponent(rSButtonHover4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelColor1Layout.setVerticalGroup(
@@ -280,6 +285,10 @@ public class Feedback extends javax.swing.JFrame {
         dispose();
         
     }//GEN-LAST:event_rSButtonHover3ActionPerformed
+
+    private void rSButtonHover2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rSButtonHover2ActionPerformed
 
     /**
      * @param args the command line arguments

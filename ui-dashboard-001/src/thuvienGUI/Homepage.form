@@ -297,7 +297,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="0" red="99" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Tr&#x1ea3; s&#xe1;ch"/>
+                <Property name="text" type="java.lang.String" value="vvvvvv"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                     <LineBorder>
@@ -374,7 +374,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="0" red="99" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="N&#x1ed9;p ph&#x1ea1;t"/>
+                <Property name="text" type="java.lang.String" value="Phi&#x1ebf;u ph&#x1ea1;t"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                     <LineBorder>
@@ -422,7 +422,7 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="rSButtonHover4" min="-2" pref="65" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="rSButtonHover1" min="-2" pref="179" max="-2" attributes="0"/>
+                          <Component id="btnMA" min="-2" pref="179" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -444,7 +444,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="rSButtonHover2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="rSButtonHover1" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnMA" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="rSButtonHover4" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -499,7 +499,7 @@
             <Property name="text" type="java.lang.String" value="H&#x1ecd; T&#xea;n Kh&#xe1;ch"/>
           </Properties>
         </Component>
-        <Component class="rojerusan.RSButtonHover" name="rSButtonHover1">
+        <Component class="rojerusan.RSButtonHover" name="btnMA">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cd" green="85" red="98" type="rgb"/>
@@ -507,12 +507,15 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/raven/icon/5.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="T&#xe0;i Kho&#x1ea3;n"/>
+            <Property name="text" type="java.lang.String" value="My account"/>
             <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="aa" green="57" red="73" type="rgb"/>
             </Property>
-            <Property name="iconTextGap" type="int" value="25"/>
+            <Property name="iconTextGap" type="int" value="15"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMAActionPerformed"/>
+          </Events>
         </Component>
         <Component class="rojerusan.RSButtonHover" name="rSButtonHover2">
           <Properties>
