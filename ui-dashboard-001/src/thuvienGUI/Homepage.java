@@ -288,9 +288,14 @@ public class Homepage extends javax.swing.JFrame {
 
         rSButtonHover2.setBackground(new java.awt.Color(152, 133, 205));
         rSButtonHover2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_course_25px.png"))); // NOI18N
-        rSButtonHover2.setText("Sách đã mượn");
+        rSButtonHover2.setText("Feedback");
         rSButtonHover2.setColorHover(new java.awt.Color(115, 87, 170));
-        rSButtonHover2.setIconTextGap(5);
+        rSButtonHover2.setIconTextGap(20);
+        rSButtonHover2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover2ActionPerformed(evt);
+            }
+        });
 
         rSButtonHover3.setBackground(new java.awt.Color(152, 133, 205));
         rSButtonHover3.setForeground(new java.awt.Color(248, 238, 249));
@@ -412,11 +417,23 @@ public class Homepage extends javax.swing.JFrame {
             SachDangMuon fn = new SachDangMuon();
             fn.show();
             fn.setLocationRelativeTo(null);
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void rSButtonHover2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover2ActionPerformed
+        try {
+            Feedback fn = new Feedback();
+            fn.setVisible(true);
+            fn.setLocationRelativeTo(null);
             dispose();
         } catch (Exception ex) {
             Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_rSButtonHover2ActionPerformed
 
     /**
      * @param args the command line arguments

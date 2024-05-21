@@ -21,63 +21,19 @@ import thuvienDTO.PhieuMuonDTO;
  *
  * @author Admin
  */
-public class SachDangMuon extends javax.swing.JFrame {
+public class Feedback extends javax.swing.JFrame {
     PhieuMuonDAO pm = new PhieuMuonDAO();
     DefaultTableModel dtm;
     /**
      * Creates new form HomePage
      * @throws java.lang.Exception
      */
-    public SachDangMuon() throws Exception {
+    public Feedback() throws Exception {
         initComponents();
-        NguoiDungBUS nguoidungtbl = new NguoiDungBUS();
-        NguoiDungDTO nd = nguoidungtbl.getInfor(pMaND);
         
-        lblHoVaTen.setText(nd.getStrHoTen());
-        lblMail.setText(nd.getStrMail());
-        
-        setLocationRelativeTo(null);
-        
-        dtm = new DefaultTableModel();
-        String tieude[] = new String[]{ "Mã Phiếu", "Mã độc giả","Tên độc giả", "Tên sách","Số lượng",
-            "Ngày hẹn trả"};
-        dtm.setColumnIdentifiers(tieude);
-        table.setModel(dtm);
-        
-        // Cập nhật dữ liệu cho bảng
-        updateDB();
     }
     
-    public void updateDB () {
-        
-        dtm.setRowCount(0);
-        ArrayList<PhieuMuonDTO> arr = new ArrayList<>();
-        try {
-
-            arr = pm.getDSPhieuMuon(pMaND);
-            for (PhieuMuonDTO dto : arr) {
     
-    int mapm = dto.getMAPM();
-    
-    
-    String tenDG = dto.getTENDG();
-    String tenSach = dto.getTENSACH();
-    String madg=dto.getMADG();
-    int sl = dto.getSL();
-    // Assuming this is a java.util.Date
-    Date ngTra = dto.getNgHenTra();
-    
-    
-    
-    Object[] row = {mapm, madg,tenDG,tenSach,sl,ngTra };
-    dtm.addRow(row);
-}
-            
-        } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(Form_3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-           
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -91,8 +47,11 @@ public class SachDangMuon extends javax.swing.JFrame {
         rSYearDateBeanInfo1 = new rojeru_san.componentes.RSYearDateBeanInfo();
         panelColor11 = new com.raven.component.PanelColor1();
         header1 = new com.raven.component.Header();
+        ManageLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table = new rojeru_san.complementos.RSTableMetro();
+        jTextArea1 = new javax.swing.JTextArea();
+        rSButtonHover6 = new rojeru_san.complementos.RSButtonHover();
+        jLabel4 = new javax.swing.JLabel();
         panelColor1 = new com.raven.component.PanelColor();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -109,54 +68,44 @@ public class SachDangMuon extends javax.swing.JFrame {
 
         panelColor11.setOpaque(false);
 
-        table.setForeground(new java.awt.Color(53, 58, 85));
-        table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        ManageLabel.setFont(new java.awt.Font("Nunito Sans 7pt ExtraBold", 1, 24)); // NOI18N
+        ManageLabel.setForeground(new java.awt.Color(53, 58, 85));
+        ManageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ManageLabel.setText("Feedback");
 
-            },
-            new String [] {
-                "Mã Phiếu Thu", "Mã Phiếu Mượn", "Người lập phiếu", "Thời gian"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        table.setColorBackgoundHead(new java.awt.Color(102, 0, 102));
-        table.setColorFilasForeground1(new java.awt.Color(53, 58, 85));
-        table.setColorFilasForeground2(new java.awt.Color(53, 58, 85));
-        table.setColorSelBackgound(new java.awt.Color(152, 133, 205));
-        table.setColorSelForeground(new java.awt.Color(53, 58, 85));
-        table.setFont(new java.awt.Font("Nunito Sans 7pt", 0, 14)); // NOI18N
-        table.setFuenteFilas(new java.awt.Font("Nunito Sans 7pt ExtraBold", 0, 14)); // NOI18N
-        table.setFuenteFilasSelect(new java.awt.Font("Nunito Sans 7pt ExtraBold", 1, 14)); // NOI18N
-        table.setFuenteHead(new java.awt.Font("Nunito Sans 7pt ExtraBold", 1, 14)); // NOI18N
-        table.setGridColor(new java.awt.Color(0, 0, 0));
-        table.setRowHeight(30);
-        table.setSelectionBackground(new java.awt.Color(51, 51, 51));
-        table.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        table.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tableMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(table);
+        rSButtonHover6.setText("Send Feedback");
+        rSButtonHover6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        jLabel4.setText("Your comments and requests");
 
         javax.swing.GroupLayout panelColor11Layout = new javax.swing.GroupLayout(panelColor11);
         panelColor11.setLayout(panelColor11Layout);
         panelColor11Layout.setHorizontalGroup(
             panelColor11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelColor11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(header1, javax.swing.GroupLayout.DEFAULT_SIZE, 915, Short.MAX_VALUE)
+                .addGroup(panelColor11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelColor11Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(header1, javax.swing.GroupLayout.DEFAULT_SIZE, 915, Short.MAX_VALUE))
+                    .addGroup(panelColor11Layout.createSequentialGroup()
+                        .addGroup(panelColor11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelColor11Layout.createSequentialGroup()
+                                .addGap(308, 308, 308)
+                                .addComponent(rSButtonHover6, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelColor11Layout.createSequentialGroup()
+                                .addGap(58, 58, 58)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 811, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(ManageLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(panelColor11Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelColor11Layout.setVerticalGroup(
@@ -164,9 +113,15 @@ public class SachDangMuon extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelColor11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(header1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ManageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
+                .addComponent(rSButtonHover6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
 
         panelColor1.setOpaque(false);
@@ -312,10 +267,6 @@ public class SachDangMuon extends javax.swing.JFrame {
         login.setLocationRelativeTo(null);
     }//GEN-LAST:event_rSButtonHover5ActionPerformed
 
-    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
-        
-    }//GEN-LAST:event_tableMouseClicked
-
     private void rSButtonHover3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover3ActionPerformed
         
         try {
@@ -324,7 +275,7 @@ public class SachDangMuon extends javax.swing.JFrame {
             fn.setLocationRelativeTo(null);
             
         } catch (Exception ex) {
-            Logger.getLogger(SachDangMuon.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Feedback.class.getName()).log(Level.SEVERE, null, ex);
         }
         dispose();
         
@@ -347,14 +298,22 @@ public class SachDangMuon extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SachDangMuon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Feedback.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SachDangMuon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Feedback.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SachDangMuon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Feedback.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SachDangMuon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Feedback.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -368,19 +327,22 @@ public class SachDangMuon extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new SachDangMuon().setVisible(true);
+                    new Feedback().setVisible(true);
                 } catch (Exception ex) {
-                    Logger.getLogger(SachDangMuon.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Feedback.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ManageLabel;
     private com.raven.component.Header header1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblHoVaTen;
     private javax.swing.JLabel lblMail;
     private com.raven.component.PanelColor panelColor1;
@@ -390,7 +352,7 @@ public class SachDangMuon extends javax.swing.JFrame {
     private rojerusan.RSButtonHover rSButtonHover3;
     private rojerusan.RSButtonHover rSButtonHover4;
     private rojerusan.RSButtonHover rSButtonHover5;
+    private rojeru_san.complementos.RSButtonHover rSButtonHover6;
     private rojeru_san.componentes.RSYearDateBeanInfo rSYearDateBeanInfo1;
-    private rojeru_san.complementos.RSTableMetro table;
     // End of variables declaration//GEN-END:variables
 }

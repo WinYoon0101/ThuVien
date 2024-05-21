@@ -190,15 +190,17 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="rSButtonHover2" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
-                      <Component id="rSButtonHover3" min="-2" pref="179" max="-2" attributes="0"/>
-                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="rSButtonHover5" min="-2" pref="66" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="rSButtonHover4" min="-2" pref="65" max="-2" attributes="0"/>
+                      <Component id="rSButtonHover2" min="-2" pref="179" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="rSButtonHover3" min="-2" pref="179" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="rSButtonHover5" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="rSButtonHover4" min="-2" pref="65" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="rSButtonHover1" min="-2" pref="179" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="rSButtonHover1" min="-2" pref="179" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -217,7 +219,7 @@
                   <Component id="lblMail" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="rSButtonHover3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="rSButtonHover2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="rSButtonHover1" min="-2" max="-2" attributes="0"/>
@@ -290,21 +292,6 @@
             <Property name="iconTextGap" type="int" value="25"/>
           </Properties>
         </Component>
-        <Component class="rojerusan.RSButtonHover" name="rSButtonHover2">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cd" green="85" red="98" type="rgb"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/com/raven/icon/icons8_course_25px.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="S&#xe1;ch &#x111;&#xe3; m&#x1b0;&#x1ee3;n"/>
-            <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="aa" green="57" red="73" type="rgb"/>
-            </Property>
-            <Property name="iconTextGap" type="int" value="5"/>
-          </Properties>
-        </Component>
         <Component class="rojerusan.RSButtonHover" name="rSButtonHover3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -323,6 +310,9 @@
             <Property name="iconTextGap" type="int" value="20"/>
             <Property name="label" type="java.lang.String" value="Dashboard"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSButtonHover3ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="rojerusan.RSButtonHover" name="rSButtonHover4">
           <Properties>
@@ -366,6 +356,21 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Gmail"/>
+          </Properties>
+        </Component>
+        <Component class="rojerusan.RSButtonHover" name="rSButtonHover2">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cd" green="85" red="98" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/raven/icon/icons8_course_25px.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Feedback"/>
+            <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="aa" green="57" red="73" type="rgb"/>
+            </Property>
+            <Property name="iconTextGap" type="int" value="20"/>
           </Properties>
         </Component>
       </SubComponents>
