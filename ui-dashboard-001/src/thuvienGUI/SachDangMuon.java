@@ -239,6 +239,11 @@ public class SachDangMuon extends javax.swing.JFrame {
         rSButtonHover1.setText("My account");
         rSButtonHover1.setColorHover(new java.awt.Color(115, 87, 170));
         rSButtonHover1.setIconTextGap(15);
+        rSButtonHover1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelColor1Layout = new javax.swing.GroupLayout(panelColor1);
         panelColor1.setLayout(panelColor1Layout);
@@ -335,8 +340,26 @@ public class SachDangMuon extends javax.swing.JFrame {
     }//GEN-LAST:event_rSButtonHover3ActionPerformed
 
     private void rSButtonHover2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover2ActionPerformed
-        // TODO add your handling code here:
+        try {
+            Feedback fn = new Feedback();
+            fn.setVisible(true);
+            fn.setLocationRelativeTo(null);
+            dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(SachDangMuon.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_rSButtonHover2ActionPerformed
+
+    private void rSButtonHover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover1ActionPerformed
+        try {
+            Myaccount fn = new Myaccount();
+            fn.setVisible(true);
+            fn.setLocationRelativeTo(null);
+            dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(SachDangMuon.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_rSButtonHover1ActionPerformed
 
     /**
      * @param args the command line arguments

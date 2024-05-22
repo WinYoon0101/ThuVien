@@ -462,6 +462,11 @@ public class Myaccount extends javax.swing.JFrame {
         rSButtonHover1.setText("My account");
         rSButtonHover1.setColorHover(new java.awt.Color(115, 87, 170));
         rSButtonHover1.setIconTextGap(15);
+        rSButtonHover1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover1ActionPerformed(evt);
+            }
+        });
 
         rSButtonHover2.setBackground(new java.awt.Color(152, 133, 205));
         rSButtonHover2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_course_25px.png"))); // NOI18N
@@ -481,6 +486,11 @@ public class Myaccount extends javax.swing.JFrame {
         rSButtonHover3.setHideActionText(true);
         rSButtonHover3.setIconTextGap(20);
         rSButtonHover3.setLabel("Dashboard");
+        rSButtonHover3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover3ActionPerformed(evt);
+            }
+        });
 
         rSButtonHover4.setBackground(new java.awt.Color(152, 133, 205));
         rSButtonHover4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_settings_25px.png"))); // NOI18N
@@ -664,14 +674,24 @@ public class Myaccount extends javax.swing.JFrame {
             // If update is successful, update the table
             JOptionPane.showMessageDialog(this, "Thông tin người dùng đã được cập nhật thành công.", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
             // Update the table after update
-            loadDB();
+            Myaccount fn = null;
+            try {
+                fn = new Myaccount();
+            } catch (Exception ex) {
+                Logger.getLogger(Myaccount.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            fn.setVisible(true);
+            fn.setLocationRelativeTo(null);
+            this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Không thể cập nhật thông tin người dùng. Vui lòng thử lại sau.", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
     } catch (SQLException ex) {
         JOptionPane.showMessageDialog(this, "Không thể cập nhật thông tin người dùng. Vui lòng thử lại sau.", "Lỗi", JOptionPane.ERROR_MESSAGE);
         ex.printStackTrace(); // Print the error to console for debugging
-    } finally {
+    } 
+    
+    finally {
         // Close resources
         try {
             if (ps != null) ps.close();
@@ -697,6 +717,20 @@ public class Myaccount extends javax.swing.JFrame {
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
+
+    private void rSButtonHover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover1ActionPerformed
+        
+    }//GEN-LAST:event_rSButtonHover1ActionPerformed
+
+    private void rSButtonHover3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover3ActionPerformed
+        try {
+            Homepage fn = new Homepage();
+            fn.setVisible(true);
+            fn.setLocationRelativeTo(null);
+        } catch (Exception ex) {
+            Logger.getLogger(Myaccount.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_rSButtonHover3ActionPerformed
 
     /**
      * @param args the command line arguments

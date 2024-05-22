@@ -338,7 +338,14 @@ public class NopPhat extends javax.swing.JFrame {
     }//GEN-LAST:event_rSButtonHover3ActionPerformed
 
     private void rSButtonHover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover1ActionPerformed
-        // Tài khoản
+            try {
+                Myaccount fn = new Myaccount();
+                fn.setVisible(true);
+                fn.setLocationRelativeTo(null);
+                dispose();
+            } catch (Exception ex) {
+                Logger.getLogger(NopPhat.class.getName()).log(Level.SEVERE, null, ex);
+            }
        
     }//GEN-LAST:event_rSButtonHover1ActionPerformed
 

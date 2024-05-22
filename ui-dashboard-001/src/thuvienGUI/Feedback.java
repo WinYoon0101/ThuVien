@@ -30,7 +30,13 @@ public class Feedback extends javax.swing.JFrame {
      */
     public Feedback() throws Exception {
         initComponents();
+        NguoiDungBUS nguoidungtbl = new NguoiDungBUS();
+        NguoiDungDTO nd = nguoidungtbl.getInfor(pMaND);
         
+        lblHoVaTen.setText(nd.getStrHoTen());
+        lblMail.setText(nd.getStrMail());
+        
+        setLocationRelativeTo(null);
     }
     
     
@@ -195,6 +201,11 @@ public class Feedback extends javax.swing.JFrame {
         rSButtonHover1.setText("My account");
         rSButtonHover1.setColorHover(new java.awt.Color(115, 87, 170));
         rSButtonHover1.setIconTextGap(15);
+        rSButtonHover1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelColor1Layout = new javax.swing.GroupLayout(panelColor1);
         panelColor1.setLayout(panelColor1Layout);
@@ -289,6 +300,17 @@ public class Feedback extends javax.swing.JFrame {
     private void rSButtonHover2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rSButtonHover2ActionPerformed
+
+    private void rSButtonHover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover1ActionPerformed
+        try {
+            Myaccount fn = new Myaccount();
+            fn.setVisible(true);
+            fn.setLocationRelativeTo(null);
+            dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(Feedback.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_rSButtonHover1ActionPerformed
 
     /**
      * @param args the command line arguments

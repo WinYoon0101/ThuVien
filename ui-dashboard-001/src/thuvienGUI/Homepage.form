@@ -556,6 +556,9 @@
             <Property name="iconTextGap" type="int" value="20"/>
             <Property name="label" type="java.lang.String" value="Dashboard"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSButtonHover3ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="rojerusan.RSButtonHover" name="rSButtonHover4">
           <Properties>

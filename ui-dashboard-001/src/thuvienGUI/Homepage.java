@@ -314,6 +314,11 @@ public class Homepage extends javax.swing.JFrame {
         rSButtonHover3.setHideActionText(true);
         rSButtonHover3.setIconTextGap(20);
         rSButtonHover3.setLabel("Dashboard");
+        rSButtonHover3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover3ActionPerformed(evt);
+            }
+        });
 
         rSButtonHover4.setBackground(new java.awt.Color(152, 133, 205));
         rSButtonHover4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/icons8_settings_25px.png"))); // NOI18N
@@ -466,6 +471,10 @@ public class Homepage extends javax.swing.JFrame {
             Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnMAActionPerformed
+
+    private void rSButtonHover3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rSButtonHover3ActionPerformed
 
 //=======
 //    
