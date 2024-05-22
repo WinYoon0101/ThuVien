@@ -434,7 +434,18 @@ public class Homepage extends javax.swing.JFrame {
             Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_rSButtonHover2ActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+       try {
+            NopPhat np = new NopPhat();
+            np.setVisible(true);
+            np.setLocationRelativeTo(null);
+            dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }   
 
+    
     /**
      * @param args the command line arguments
      */
