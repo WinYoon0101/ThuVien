@@ -207,6 +207,11 @@ public class Homepage extends javax.swing.JFrame {
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.setFocusPainted(false);
         jButton6.setOpaque(true);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -439,7 +444,18 @@ public class Homepage extends javax.swing.JFrame {
             Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_rSButtonHover2ActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+       try {
+            NopPhat np = new NopPhat();
+            np.setVisible(true);
+            np.setLocationRelativeTo(null);
+            dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }   
 
+//<<<<<<< HEAD
     private void btnMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMAActionPerformed
         try {
             Myaccount fn = new Myaccount();
@@ -451,6 +467,9 @@ public class Homepage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnMAActionPerformed
 
+//=======
+//    
+//>>>>>>> 1f548448373dc8015467a690c7c987bfd4eeefce
     /**
      * @param args the command line arguments
      */
