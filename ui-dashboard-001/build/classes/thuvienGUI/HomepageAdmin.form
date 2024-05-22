@@ -34,7 +34,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="com.raven.swing.PanelBorder" name="panelBorder1">
+    <Container class="com.swing.PanelBorder" name="panelBorder1">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -65,9 +65,9 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="com.raven.component.Menu" name="menu">
+        <Component class="com.component.Menu" name="menu">
         </Component>
-        <Component class="com.raven.component.Header" name="header2">
+        <Component class="com.component.Header" name="header2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="sansserif" size="14" style="0"/>

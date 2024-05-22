@@ -5,16 +5,16 @@
  */
 package thuvienGUI;
 
-import com.raven.event.EventMenuSelected;
-import com.raven.form.Form_1;
-import com.raven.form.Form_2;
-import com.raven.form.Form_3;
-import com.raven.form.Form_4;
-import com.raven.form.Form_5;
-import com.raven.form.Form_6;
-import com.raven.form.Form_7;
-import com.raven.form.Form_8;
-import com.raven.form.Form_Sach;
+import com.event.EventMenuSelected;
+import thuvienGUIAdmin.Form_1;
+import thuvienGUIAdmin.Form_2;
+import thuvienGUIAdmin.Form_3;
+import thuvienGUIAdmin.Form_4;
+import thuvienGUIAdmin.Form_5;
+import thuvienGUIAdmin.Form_6;
+import thuvienGUIAdmin.Form_7;
+import thuvienGUIAdmin.Form_8;
+import thuvienGUIAdmin.Form_Sach;
 import java.awt.Color;
 import javax.swing.JComponent;
 import loginvsignup.LoginView;
@@ -110,9 +110,9 @@ public class HomepageAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelBorder1 = new com.raven.swing.PanelBorder();
-        menu = new com.raven.component.Menu();
-        header2 = new com.raven.component.Header();
+        panelBorder1 = new com.swing.PanelBorder();
+        menu = new com.component.Menu();
+        header2 = new com.component.Header();
         mainPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -165,9 +165,9 @@ public class HomepageAdmin extends javax.swing.JFrame {
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.component.Header header2;
+    private com.component.Header header2;
     private javax.swing.JPanel mainPanel;
-    private com.raven.component.Menu menu;
-    private com.raven.swing.PanelBorder panelBorder1;
+    private com.component.Menu menu;
+    private com.swing.PanelBorder panelBorder1;
     // End of variables declaration//GEN-END:variables
 }

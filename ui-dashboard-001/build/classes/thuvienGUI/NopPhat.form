@@ -43,7 +43,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="com.raven.component.PanelColor1" name="panelColor11">
+    <Container class="com.component.PanelColor1" name="panelColor11">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
@@ -83,7 +83,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="com.raven.component.Header" name="header1">
+        <Component class="com.component.Header" name="header1">
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
@@ -151,7 +151,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="com.raven.component.PanelColor" name="panelColor1">
+    <Container class="com.component.PanelColor" name="panelColor1">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
@@ -263,11 +263,11 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/raven/icon/5.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="T&#xe0;i Kho&#x1ea3;n"/>
+            <Property name="text" type="java.lang.String" value="My account"/>
             <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="aa" green="57" red="73" type="rgb"/>
             </Property>
-            <Property name="iconTextGap" type="int" value="25"/>
+            <Property name="iconTextGap" type="int" value="15"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSButtonHover1ActionPerformed"/>

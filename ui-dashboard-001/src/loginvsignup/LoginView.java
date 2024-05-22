@@ -4,8 +4,8 @@
  */
 package loginvsignup;
 
-import com.raven.form.OTP_User;
-import com.raven.main.Main;
+import thuvienGUIAdmin.OTP_User;
+import com.main.Main;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;

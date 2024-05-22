@@ -45,7 +45,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="com.raven.component.PanelColor1" name="panelColor11">
+    <Container class="com.component.PanelColor1" name="panelColor11">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
@@ -97,7 +97,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="com.raven.component.Header" name="header1">
+        <Component class="com.component.Header" name="header1">
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Properties>
@@ -643,7 +643,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="com.raven.component.PanelColor" name="panelColor1">
+    <Container class="com.component.PanelColor" name="panelColor1">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>

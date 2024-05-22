@@ -4,7 +4,7 @@
  */
 package thuvienGUI;
 
-import com.raven.form.Form_3;
+import thuvienGUIAdmin.Form_3;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
@@ -51,14 +51,14 @@ public class Feedback extends javax.swing.JFrame {
     private void initComponents() {
 
         rSYearDateBeanInfo1 = new rojeru_san.componentes.RSYearDateBeanInfo();
-        panelColor11 = new com.raven.component.PanelColor1();
-        header1 = new com.raven.component.Header();
+        panelColor11 = new com.component.PanelColor1();
+        header1 = new com.component.Header();
         ManageLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         rSButtonHover6 = new rojeru_san.complementos.RSButtonHover();
         jLabel4 = new javax.swing.JLabel();
-        panelColor1 = new com.raven.component.PanelColor();
+        panelColor1 = new com.component.PanelColor();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblHoVaTen = new javax.swing.JLabel();
@@ -368,7 +368,7 @@ public class Feedback extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ManageLabel;
-    private com.raven.component.Header header1;
+    private com.component.Header header1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -376,8 +376,8 @@ public class Feedback extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblHoVaTen;
     private javax.swing.JLabel lblMail;
-    private com.raven.component.PanelColor panelColor1;
-    private com.raven.component.PanelColor1 panelColor11;
+    private com.component.PanelColor panelColor1;
+    private com.component.PanelColor1 panelColor11;
     private rojerusan.RSButtonHover rSButtonHover1;
     private rojerusan.RSButtonHover rSButtonHover2;
     private rojerusan.RSButtonHover rSButtonHover3;

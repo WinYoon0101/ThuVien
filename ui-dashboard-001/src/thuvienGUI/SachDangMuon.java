@@ -4,7 +4,7 @@
  */
 package thuvienGUI;
 
-import com.raven.form.Form_3;
+import thuvienGUIAdmin.Form_3;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
@@ -89,11 +89,11 @@ public class SachDangMuon extends javax.swing.JFrame {
     private void initComponents() {
 
         rSYearDateBeanInfo1 = new rojeru_san.componentes.RSYearDateBeanInfo();
-        panelColor11 = new com.raven.component.PanelColor1();
-        header1 = new com.raven.component.Header();
+        panelColor11 = new com.component.PanelColor1();
+        header1 = new com.component.Header();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new rojeru_san.complementos.RSTableMetro();
-        panelColor1 = new com.raven.component.PanelColor();
+        panelColor1 = new com.component.PanelColor();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblHoVaTen = new javax.swing.JLabel();
@@ -408,14 +408,14 @@ public class SachDangMuon extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.component.Header header1;
+    private com.component.Header header1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblHoVaTen;
     private javax.swing.JLabel lblMail;
-    private com.raven.component.PanelColor panelColor1;
-    private com.raven.component.PanelColor1 panelColor11;
+    private com.component.PanelColor panelColor1;
+    private com.component.PanelColor1 panelColor11;
     private rojerusan.RSButtonHover rSButtonHover1;
     private rojerusan.RSButtonHover rSButtonHover2;
     private rojerusan.RSButtonHover rSButtonHover3;

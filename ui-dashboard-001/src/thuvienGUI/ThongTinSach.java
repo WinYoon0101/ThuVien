@@ -4,9 +4,9 @@
  */
 package thuvienGUI;
 
-import com.raven.model.Model_Card;
-import com.raven.model.StatusType;
-import com.raven.swing.ScrollBar;
+import com.model.Model_Card;
+import com.model.StatusType;
+import com.swing.ScrollBar;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -14,7 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import com.raven.form.Form_3;
+import thuvienGUIAdmin.Form_3;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
@@ -76,20 +76,20 @@ public class ThongTinSach extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelColor11 = new com.raven.component.PanelColor1();
-        header1 = new com.raven.component.Header();
+        panelColor11 = new com.component.PanelColor1();
+        header1 = new com.component.Header();
         ManageLabel = new javax.swing.JLabel();
-        panelBorder1 = new com.raven.swing.PanelBorder();
+        panelBorder1 = new com.swing.PanelBorder();
         jLabel3 = new javax.swing.JLabel();
         spTable = new javax.swing.JScrollPane();
-        table = new com.raven.swing.Table();
+        table = new com.swing.Table();
         btsearch1 = new javax.swing.JButton();
         txtsearch = new javax.swing.JTextField();
         panel = new javax.swing.JLayeredPane();
-        card1 = new com.raven.component.Card();
-        card2 = new com.raven.component.Card();
-        card3 = new com.raven.component.Card();
-        panelColor1 = new com.raven.component.PanelColor();
+        card1 = new com.component.Card();
+        card2 = new com.component.Card();
+        card3 = new com.component.Card();
+        panelColor1 = new com.component.PanelColor();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblHoVaTen = new javax.swing.JLabel();
@@ -101,6 +101,7 @@ public class ThongTinSach extends javax.swing.JFrame {
         rSButtonHover2 = new rojerusan.RSButtonHover();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         panelColor11.setOpaque(false);
 
@@ -168,7 +169,7 @@ public class ThongTinSach extends javax.swing.JFrame {
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                         .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
                         .addComponent(btsearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -252,9 +253,14 @@ public class ThongTinSach extends javax.swing.JFrame {
 
         rSButtonHover1.setBackground(new java.awt.Color(152, 133, 205));
         rSButtonHover1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/5.png"))); // NOI18N
-        rSButtonHover1.setText("Tài Khoản");
+        rSButtonHover1.setText("My account");
         rSButtonHover1.setColorHover(new java.awt.Color(115, 87, 170));
-        rSButtonHover1.setIconTextGap(25);
+        rSButtonHover1.setIconTextGap(15);
+        rSButtonHover1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover1ActionPerformed(evt);
+            }
+        });
 
         rSButtonHover3.setBackground(new java.awt.Color(152, 133, 205));
         rSButtonHover3.setForeground(new java.awt.Color(248, 238, 249));
@@ -297,6 +303,11 @@ public class ThongTinSach extends javax.swing.JFrame {
         rSButtonHover2.setText("Feedback");
         rSButtonHover2.setColorHover(new java.awt.Color(115, 87, 170));
         rSButtonHover2.setIconTextGap(20);
+        rSButtonHover2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelColor1Layout = new javax.swing.GroupLayout(panelColor1);
         panelColor1.setLayout(panelColor1Layout);
@@ -321,7 +332,7 @@ public class ThongTinSach extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(rSButtonHover4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(rSButtonHover1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         panelColor1Layout.setVerticalGroup(
             panelColor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -419,6 +430,28 @@ public class ThongTinSach extends javax.swing.JFrame {
         login.setLocationRelativeTo(null);
     }//GEN-LAST:event_rSButtonHover5ActionPerformed
 
+    private void rSButtonHover2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover2ActionPerformed
+        try {
+            Feedback fn = new Feedback();
+            fn.setVisible(true);
+            fn.setLocationRelativeTo(null);
+            dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(ThongTinSach.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_rSButtonHover2ActionPerformed
+
+    private void rSButtonHover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover1ActionPerformed
+        try {
+            NopPhat np = new NopPhat();
+            np.setVisible(true);
+            np.setLocationRelativeTo(null);
+            dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(ThongTinSach.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_rSButtonHover1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -461,26 +494,26 @@ public class ThongTinSach extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ManageLabel;
     private javax.swing.JButton btsearch1;
-    private com.raven.component.Card card1;
-    private com.raven.component.Card card2;
-    private com.raven.component.Card card3;
-    private com.raven.component.Header header1;
+    private com.component.Card card1;
+    private com.component.Card card2;
+    private com.component.Card card3;
+    private com.component.Header header1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblHoVaTen;
     private javax.swing.JLabel lblMail;
     private javax.swing.JLayeredPane panel;
-    private com.raven.swing.PanelBorder panelBorder1;
-    private com.raven.component.PanelColor panelColor1;
-    private com.raven.component.PanelColor1 panelColor11;
+    private com.swing.PanelBorder panelBorder1;
+    private com.component.PanelColor panelColor1;
+    private com.component.PanelColor1 panelColor11;
     private rojerusan.RSButtonHover rSButtonHover1;
     private rojerusan.RSButtonHover rSButtonHover2;
     private rojerusan.RSButtonHover rSButtonHover3;
     private rojerusan.RSButtonHover rSButtonHover4;
     private rojerusan.RSButtonHover rSButtonHover5;
     private javax.swing.JScrollPane spTable;
-    private com.raven.swing.Table table;
+    private com.swing.Table table;
     private javax.swing.JTextField txtsearch;
     // End of variables declaration//GEN-END:variables
 }

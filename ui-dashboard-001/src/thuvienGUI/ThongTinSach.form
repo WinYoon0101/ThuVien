@@ -3,6 +3,7 @@
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="undecorated" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -50,7 +51,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="com.raven.component.PanelColor1" name="panelColor11">
+    <Container class="com.component.PanelColor1" name="panelColor11">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
@@ -94,7 +95,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="com.raven.component.Header" name="header1">
+        <Component class="com.component.Header" name="header1">
         </Component>
         <Component class="javax.swing.JLabel" name="ManageLabel">
           <Properties>
@@ -108,7 +109,7 @@
             <Property name="text" type="java.lang.String" value="Th&#xf4;ng tin s&#xe1;ch"/>
           </Properties>
         </Component>
-        <Container class="com.raven.swing.PanelBorder" name="panelBorder1">
+        <Container class="com.swing.PanelBorder" name="panelBorder1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -127,7 +128,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" pref="62" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="60" max="32767" attributes="0"/>
                               <Component id="txtsearch" min="-2" pref="660" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                               <Component id="btsearch1" min="-2" pref="56" max="-2" attributes="0"/>
@@ -177,7 +178,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="com.raven.swing.Table" name="table">
+                <Component class="com.swing.Table" name="table">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="0">
@@ -232,7 +233,7 @@
             <Property name="rows" type="int" value="1"/>
           </Layout>
           <SubComponents>
-            <Component class="com.raven.component.Card" name="card1">
+            <Component class="com.component.Card" name="card1">
               <Properties>
                 <Property name="color1" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fa" green="8e" red="8e" type="rgb"/>
@@ -242,7 +243,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="com.raven.component.Card" name="card2">
+            <Component class="com.component.Card" name="card2">
               <Properties>
                 <Property name="color1" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f7" green="7b" red="ba" type="rgb"/>
@@ -252,7 +253,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="com.raven.component.Card" name="card3">
+            <Component class="com.component.Card" name="card3">
               <Properties>
                 <Property name="color1" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="3e" green="d0" red="f1" type="rgb"/>
@@ -266,7 +267,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="com.raven.component.PanelColor" name="panelColor1">
+    <Container class="com.component.PanelColor" name="panelColor1">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
@@ -298,7 +299,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="34" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -380,12 +381,15 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/raven/icon/5.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="T&#xe0;i Kho&#x1ea3;n"/>
+            <Property name="text" type="java.lang.String" value="My account"/>
             <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="aa" green="57" red="73" type="rgb"/>
             </Property>
-            <Property name="iconTextGap" type="int" value="25"/>
+            <Property name="iconTextGap" type="int" value="15"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSButtonHover1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="rojerusan.RSButtonHover" name="rSButtonHover3">
           <Properties>
@@ -467,6 +471,9 @@
             </Property>
             <Property name="iconTextGap" type="int" value="20"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSButtonHover2ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

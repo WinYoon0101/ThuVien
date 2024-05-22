@@ -73,8 +73,8 @@ public class Myaccount extends javax.swing.JFrame {
 
         rSYearDateBeanInfo1 = new rojeru_san.componentes.RSYearDateBeanInfo();
         GioiTinh = new javax.swing.ButtonGroup();
-        panelColor11 = new com.raven.component.PanelColor1();
-        header1 = new com.raven.component.Header();
+        panelColor11 = new com.component.PanelColor1();
+        header1 = new com.component.Header();
         jPanel1 = new javax.swing.JPanel();
         HoTen_Text = new javax.swing.JLabel();
         txtMaKH = new app.bolivia.swing.JCTextField();
@@ -98,7 +98,7 @@ public class Myaccount extends javax.swing.JFrame {
         btnCapNhat = new rojeru_san.complementos.RSButtonHover();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        panelColor1 = new com.raven.component.PanelColor();
+        panelColor1 = new com.component.PanelColor();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblHoVaTen = new javax.swing.JLabel();
@@ -786,7 +786,7 @@ public class Myaccount extends javax.swing.JFrame {
     private javax.swing.JLabel HoTen_Text7;
     private javax.swing.JLabel HoTen_Text8;
     private rojeru_san.complementos.RSButtonHover btnCapNhat;
-    private com.raven.component.Header header1;
+    private com.component.Header header1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -795,8 +795,8 @@ public class Myaccount extends javax.swing.JFrame {
     private rojeru_san.componentes.RSDateChooser jdcNgaySinh;
     private javax.swing.JLabel lblHoVaTen;
     private javax.swing.JLabel lblMail;
-    private com.raven.component.PanelColor panelColor1;
-    private com.raven.component.PanelColor1 panelColor11;
+    private com.component.PanelColor panelColor1;
+    private com.component.PanelColor1 panelColor11;
     private rojerusan.RSButtonHover rSButtonHover1;
     private rojerusan.RSButtonHover rSButtonHover2;
     private rojerusan.RSButtonHover rSButtonHover3;
