@@ -32,7 +32,7 @@ public class Form_6 extends javax.swing.JPanel {
     ResultSet rs = null;
     public void updateDB () {
         try {
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@HacThienCau:1521:ORCLDB", "C##UITthuvien", "uitthuvien");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
             String sql = "SELECT * FROM PHIEUTHU";
             ps = conn.prepareStatement(sql);
             
@@ -379,7 +379,7 @@ public class Form_6 extends javax.swing.JPanel {
     
     try {
         // Connect to the database
-        conn = DriverManager.getConnection("jdbc:oracle:thin:@HacThienCau:1521:ORCLDB", "C##UITthuvien", "uitthuvien");
+        conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
 
 
         
@@ -464,7 +464,7 @@ public class Form_6 extends javax.swing.JPanel {
 
     try {
         // Update the user information in the database
-        conn = DriverManager.getConnection("jdbc:oracle:thin:@HacThienCau:1521:ORCLDB", "C##UITthuvien", "uitthuvien");
+        conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
         String sql = "UPDATE PHIEUTHU SET MAPM = ?, MADG = ?, MAND = ?, TONGNO = ?, TIENTHU = ?, TIENCONLAI = ?, TGPT = ? WHERE MAPT = ?";
         ps = conn.prepareStatement(sql);
         ps.setDouble(1, Double.parseDouble(mapm));
@@ -519,7 +519,7 @@ public class Form_6 extends javax.swing.JPanel {
     if (option == JOptionPane.YES_OPTION) {
         try {
             // Delete the user from the database
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@HacThienCau:1521:ORCLDB", "C##UITthuvien", "uitthuvien");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
             String sql = "DELETE FROM PHIEUTHU WHERE MAPT = ?";
             ps = conn.prepareStatement(sql);
             ps.setString(1, maPT);
