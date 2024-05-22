@@ -29,7 +29,7 @@ public class PhieuThuDAO {
             String sql = "SELECT PT.MAPT, PT.MAPM, PT.TONGNO, PT.TIENCONLAI " +
                          "FROM PHIEUTHU PT WHERE PT.MADG = ? ";
             
-            con = DriverManager.getConnection("jdbc:oracle:thin:@HacThienCau:1521:ORCLDB", "C##UITthuvien", "uitthuvien");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.56.1:1521:orcldb", "C##UITthuvien", "uitthuvien");
             ps = con.prepareStatement(sql);
             ps.setString(1, madg);         
             rs = ps.executeQuery();
